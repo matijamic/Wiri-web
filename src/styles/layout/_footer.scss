@@ -1,0 +1,73 @@
+footer {
+  background-color: $light-gray;
+  .footer-wrapper {
+    max-width: 978px;
+    margin-left: auto;
+    margin-right: auto;
+    @include mq("laptop", max) {
+      max-width: 738px;
+    }
+    @include mq("tablet", max) {
+      width: calc(100% - 40px);
+    }
+    .navbar {
+      flex-wrap: wrap;
+      @include mq("laptop", max) {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+      .nav-items,
+      .social-items {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .nav-items {
+        .nav-item {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 24px;
+          letter-spacing: -0.02em;
+          margin-right: 47px;
+          &:last-child {
+            margin-right: 0;
+          }
+          @include mq("laptop", max) {
+            margin-bottom: 30px;
+          }
+        }
+        @include mq("laptop", max) {
+          margin-bottom: 10px;
+        }
+      }
+      .social-items {
+        margin: 40px 0;
+        .social-item {
+          margin-left: 25px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+    .caption-section {
+      padding-bottom: 80px;
+      @include mq("phone", max) {
+        padding-bottom: 50px;
+      }
+      .caption-detail {
+        display: flex;
+        justify-content: space-between;
+        .caption {
+          margin-top: 20px;
+          width: calc(50% - 10px);
+          @include mq("phone", max) {
+            width: 100%;
+          }
+        }
+        @include mq("phone", max) {
+          flex-wrap: wrap;
+        }
+      }
+    }
+  }
+}

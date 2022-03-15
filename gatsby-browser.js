@@ -1,7 +1,4 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
+import "react-phone-number-input/style.css"
+import "react-tabs/style/react-tabs.css"
 
-// You can delete this file if you're not using it
+import "./src/styles/app.scss"
