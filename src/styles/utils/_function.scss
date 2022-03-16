@@ -1,0 +1,16 @@
+@use "sass:math";
+
+@function fs(
+  $mobile-font-size,
+  $desktop-font-size,
+  $mobile-viewport: 768px,
+  $desktop-viewport: 1920px
+) {
+  $font-diff: math.div($desktop-font-size - $mobile-font-size, 1px);
+  $viewport-diff: math.div($desktop-viewport - $mobile-viewport, 1px);
+
+  @return calc(
+    #{$mobile-font-size} + #{$font-diff} *
+      ((100vw - #{$mobile-viewport}) / #{$viewport-diff})
+  );
+}

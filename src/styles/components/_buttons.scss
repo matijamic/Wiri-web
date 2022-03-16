@@ -1,10 +1,23 @@
-.btn-primary {
-  background-color: $black;
-  border: none;
-  border-radius: 8px;
-  font-weight: 500;
-  color: white;
-  font-size: 18px;
-  line-height: 24px;
-  letter-spacing: -0.02em;
+.btn {
+  &-green {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: $green;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    color: white;
+  }
+  &-blue {
+    padding: 20px 33px;
+    background-color: $blue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: 700;
+    font-size: 31px;
+    line-height: 41px;
+    letter-spacing: -0.31px;
+  }
 }

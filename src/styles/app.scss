@@ -1,11 +1,15 @@
+//Fonts
+@import "fonts/fonts";
+
 //Configuration and helpers
-@import "utils/variables", "utils/mixins", "utils/placeholders";
+@import "utils/variables", "utils/mixins", "utils/placeholders",
+  "utils/function";
 
 //Base Stuff
 @import "base/base", "base/typography";
 
 // Components
-@import "components/buttons", "components/phone_input", "components/content_box";
+@import "components/buttons";
 
 // Layout
 @import "layout/header", "layout/footer";

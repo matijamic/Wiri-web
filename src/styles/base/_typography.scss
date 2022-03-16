@@ -1,34 +1,19 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 500;
-}
-
 h1 {
-  font-size: 44px;
-  line-height: 46px;
-  letter-spacing: -0.03em;
+  font-size: fs(78px, 106px);
+  line-height: 100px;
+  letter-spacing: -3.18px;
+  font-weight: 700;
   @include mq("tablet", max) {
-    font-size: 40px;
-    line-height: 46px;
-    letter-spacing: -0.035em;
-  }
-  @include mq("phone", max) {
-    font-size: 34px;
-    line-height: 40px;
+    line-height: 82px;
+    letter-spacing: -2.34px;
   }
 }
 
 h2 {
-  font-size: 40px;
-  line-height: 46px;
-  letter-spacing: -0.035em;
+  font-size: 70px;
+  line-height: 105px;
   @include mq("phone", max) {
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 60px;
   }
 }
 
@@ -70,6 +55,10 @@ p {
     font-size: 14px;
     line-height: 20px;
   }
+}
+
+.txt-green {
+  color: $green;
 }
 
 .caption {
