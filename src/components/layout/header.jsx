@@ -120,7 +120,9 @@ const Header = () => {
               }}
             />
           </div>
-          <Link className="get-started btn-green">Get Started</Link>
+          <Link className="get-started btn-green" to="/">
+            Get Started
+          </Link>
           <div
             className={humbugerClsName}
             onClick={hamburgerHandler}

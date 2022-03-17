@@ -7,7 +7,10 @@ const HomeHero = () => (
       <div className="row align-items-center">
         <div className="col-lg-6 left-side">
           <h1 className="title">
-            Meet your new business app<span className="txt-green">.</span>
+            Meet your new
+            <br />
+            <span className="blue-line">business app</span>
+            <span className="txt-green">.</span>
           </h1>
           <p className="subtitle">
             Various, fully customizable, simple marketing tools that will help

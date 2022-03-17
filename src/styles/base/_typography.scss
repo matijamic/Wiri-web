@@ -10,50 +10,11 @@ h1 {
 }
 
 h2 {
-  font-size: 70px;
+  font-size: fs(60px, 70px);
+  letter-spacing: -2.1px;
   line-height: 105px;
   @include mq("phone", max) {
-    font-size: 60px;
-  }
-}
-
-h3 {
-  font-size: 34px;
-  line-height: 40px;
-  letter-spacing: -0.035em;
-  @include mq("phone", max) {
-    font-size: 20px;
-    line-height: 26px;
-  }
-}
-
-h4 {
-  font-size: 26px;
-  line-height: 32px;
-  letter-spacing: -0.025em;
-  @include mq("phone", max) {
-    font-size: 18px;
-    line-height: 20px;
-  }
-}
-
-h5 {
-  font-size: 22px;
-  line-height: 30px;
-  letter-spacing: -0.025em;
-}
-
-h6 {
-  font-size: 20px;
-  line-height: 28px;
-}
-
-p {
-  @extend %text-body2;
-  margin: 0;
-  @include mq("phone", max) {
-    font-size: 14px;
-    line-height: 20px;
+    letter-spacing: -1.8px;
   }
 }
 
@@ -61,13 +22,16 @@ p {
   color: $green;
 }
 
-.caption {
-  @extend %text-caption;
-}
-
-.body1 {
-  @extend %text-body1;
-}
-.body2 {
-  @extend %text-body2;
+.blue-line {
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    height: 21px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #4478db;
+    opacity: 0.25;
+  }
 }

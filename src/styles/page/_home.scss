@@ -6,6 +6,7 @@
     max-width: 700px;
     .title {
       margin-bottom: 40px;
+      position: relative;
     }
     .subtitle {
       font-size: 27px;
@@ -39,4 +40,8 @@
       margin-top: 40px;
     }
   }
+}
+
+.wow-clients {
+  margin: 145px 0;
 }
