@@ -26,7 +26,9 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-select": "^5.2.2",
+    "react-slick": "^0.28.1",
     "sass": "^1.49.9",
+    "slick-carousel": "^1.8.1",
     "styled-breakpoints": "^11.0.4",
     "styled-components": "^5.3.3"
   },

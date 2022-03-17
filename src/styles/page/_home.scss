@@ -45,3 +45,12 @@
 .wow-clients {
   margin: 145px 0;
 }
+
+.app-slider {
+  z-index: 2;
+  @include mq("desktop") {
+    max-width: calc(100% - 200px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

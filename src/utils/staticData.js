@@ -1,13 +1,20 @@
 import {
+  App1,
+  App2,
+  App3,
+  App4,
   Audience,
   Dut,
   Eng,
+  Facebook,
   Fre,
+  Instagram,
   Ita,
   Por,
   Sale,
   Satisfaction,
   Spa,
+  Twitter,
 } from "./imgImport"
 
 export const header_menus = [
@@ -56,5 +63,67 @@ export const provides = [
     caption: "Build audience",
     content:
       "Lorem ipsum dolor sit consectetur adipiscing sit amet dui sed velit fringilla tincidunt.",
+  },
+]
+
+export const appImgs = [App1, App2, App3, App4]
+
+export const footer_menus = [
+  {
+    menu_type: "Company",
+    items: [
+      {
+        name: "Product",
+        to: "/",
+      },
+      {
+        name: "Pricing",
+        to: "/",
+      },
+      {
+        name: "Blog",
+        to: "/",
+      },
+      {
+        name: "Login",
+        to: "/",
+      },
+    ],
+  },
+  {
+    menu_type: "Resource",
+    items: [
+      {
+        name: "Download",
+        to: "/",
+      },
+      {
+        name: "Help Center",
+        to: "/",
+      },
+      {
+        name: "Guide",
+        to: "/",
+      },
+      {
+        name: "Blog",
+        to: "/",
+      },
+    ],
+  },
+]
+
+export const socials = [
+  {
+    icon: Facebook,
+    to: "/",
+  },
+  {
+    icon: Twitter,
+    to: "/",
+  },
+  {
+    icon: Instagram,
+    to: "/",
   },
 ]

@@ -5,6 +5,7 @@ import styled from "styled-components"
 const Heading = ({ title, subtitle, align }) => {
   const Headline = styled.div`
     text-align: ${align};
+    z-index: 1;
   `
   const Title = styled.h2`
     position: relative;
@@ -18,6 +19,9 @@ const Heading = ({ title, subtitle, align }) => {
       bottom: 10px;
       left: ${align === "left" ? 0 : "50%"};
       transform: ${align === "left" ? 0 : "translateX(-50%)"};
+      ${down("md")} {
+        bottom: 0;
+      }
     }
   `
   const Subtitle = styled.p`

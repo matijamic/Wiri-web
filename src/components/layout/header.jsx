@@ -45,95 +45,98 @@ const Header = () => {
   return (
     <>
       <header>
-        <nav className="container navbar fixed-top">
-          <Link to="/">
-            <Logo />
-          </Link>
-          <ul className={navMenuClsName}>
-            {header_menus.map((item, idx) => (
-              <li className="nav-item" key={idx}>
-                <Link
-                  className="nav-link"
-                  activeClassName="active"
-                  to={item.to}
-                >
-                  {item.name}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div className="lang-switcher">
-            <Select
-              isSearchable={false}
-              value={language}
-              onChange={handleLang}
-              options={langs}
-              components={{ SingleValue, Option }}
-              styles={{
-                valueContainer: base => ({
-                  ...base,
-                  padding: "0",
-                }),
-                control: base => ({
-                  ...base,
-                  outline: "none",
-                  border: "none",
-                  boxShadow: "none",
-                }),
-                menu: base => ({
-                  ...base,
-                  left: "-100px",
-                  width: "auto",
-                  overflow: "auto",
-                  boxShadow: "0 27px 49px rgba(29, 22, 55, 0.36)",
-                  borderRadius: "10px",
-                }),
-                menuList: base => ({
-                  ...base,
-                  width: "200px",
-                  minHeight: "315px",
-                }),
-                singleValue: base => ({
-                  ...base,
-                  padding: 0,
-                  margin: 0,
-                  borderRadius: "50%",
-                }),
-                dropdownIndicator: () => ({
-                  paddingLeft: "4px",
-                }),
-                indicatorSeparator: () => ({
-                  display: "none",
-                }),
-                option: (base, state) => ({
-                  ...base,
-                  display: "flex",
-                  alignItems: "center",
-                  cursor: "pointer",
-                  padding: "10px 21px",
-                  margin: "0",
-                  width: "100%",
-                  borderBottom: "1px solid rgba(19,19,19,0.1)",
-                  fontSize: "20px",
-                  color: state.isSelected ? "#4478db" : "#303030",
-                }),
-              }}
-            />
-          </div>
-          <Link className="get-started btn-green" to="/">
-            Get Started
-          </Link>
-          <div
-            className={humbugerClsName}
-            onClick={hamburgerHandler}
-            onKeyDown={hamburgerHandler}
-            role="button"
-            tabIndex="0"
-          >
-            <div className="hamburger-inner">
-              <span></span>
-              <span></span>
-              <span></span>
+        <nav className="navbar fixed-top">
+          <div className="container">
+            <Link to="/">
+              <Logo />
+            </Link>
+            <ul className={navMenuClsName}>
+              {header_menus.map((item, idx) => (
+                <li className="nav-item" key={idx}>
+                  <Link
+                    className="nav-link"
+                    activeClassName="active"
+                    to={item.to}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="lang-switcher">
+              <Select
+                isSearchable={false}
+                value={language}
+                onChange={handleLang}
+                options={langs}
+                components={{ SingleValue, Option }}
+                styles={{
+                  valueContainer: base => ({
+                    ...base,
+                    padding: "0",
+                  }),
+                  control: base => ({
+                    ...base,
+                    outline: "none",
+                    border: "none",
+                    boxShadow: "none",
+                    cursor: "pointer",
+                  }),
+                  menu: base => ({
+                    ...base,
+                    left: "-100px",
+                    width: "auto",
+                    overflow: "auto",
+                    boxShadow: "0 27px 49px rgba(29, 22, 55, 0.36)",
+                    borderRadius: "10px",
+                  }),
+                  menuList: base => ({
+                    ...base,
+                    width: "200px",
+                    minHeight: "315px",
+                  }),
+                  singleValue: base => ({
+                    ...base,
+                    padding: 0,
+                    margin: 0,
+                    borderRadius: "50%",
+                  }),
+                  dropdownIndicator: () => ({
+                    paddingLeft: "4px",
+                  }),
+                  indicatorSeparator: () => ({
+                    display: "none",
+                  }),
+                  option: (base, state) => ({
+                    ...base,
+                    display: "flex",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    padding: "10px 21px",
+                    margin: "0",
+                    width: "100%",
+                    borderBottom: "1px solid rgba(19,19,19,0.1)",
+                    fontSize: "20px",
+                    color: state.isSelected ? "#4478db" : "#303030",
+                  }),
+                }}
+              />
+            </div>
+            <Link className="get-started btn-green" to="/">
+              Get Started
+            </Link>
+            <div
+              className={humbugerClsName}
+              onClick={hamburgerHandler}
+              onKeyDown={hamburgerHandler}
+              role="button"
+              tabIndex="0"
+            >
+              <div className="hamburger-inner">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
             </div>
           </div>
         </nav>

@@ -1,5 +1,5 @@
 h1 {
-  font-size: fs(78px, 106px);
+  font-size: fs(60px, 105px);
   line-height: 100px;
   letter-spacing: -3.18px;
   font-weight: 700;
@@ -10,12 +10,21 @@ h1 {
 }
 
 h2 {
-  font-size: fs(60px, 70px);
+  font-size: fs(50px, 70px);
   letter-spacing: -2.1px;
   line-height: 105px;
-  @include mq("phone", max) {
-    letter-spacing: -1.8px;
+  font-weight: 700;
+  @include mq("tablet", max) {
+    letter-spacing: -1.5px;
+    line-height: 50px;
   }
+}
+h4 {
+  font-family: "Gelion - Semi Bold";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 35px;
+  letter-spacing: -0.78px;
 }
 
 .txt-green {
@@ -34,4 +43,12 @@ h2 {
     background-color: #4478db;
     opacity: 0.25;
   }
+}
+
+p {
+  font-family: "Gelion";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 27px;
+  margin-bottom: 0;
 }
