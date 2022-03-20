@@ -42,7 +42,7 @@ const Social = styled.a`
 `
 
 const FooterMenu = ({ data }) => (
-  <div className="col-6 col-sm-4">
+  <div className="col-4">
     <h4>{data.menu_type}</h4>
     <ul>
       {data?.items.map((item, idx) => (
@@ -78,13 +78,15 @@ const Footer = () => (
               {footer_menus.map((item, idx) => (
                 <FooterMenu data={item} key={idx} />
               ))}
-              <div className="col-6 col-sm-4">
+              <div className="col-4">
                 <h4>Contact Us</h4>
                 <ul>
                   <li>
-                    <p>Address Line Here Lorem Ipsum Dolor Sit 123456</p>
+                    <p className="contact-address">
+                      Address Line Here Lorem Ipsum Dolor Sit 123456
+                    </p>
                   </li>
-                  <li className="my-3">
+                  <li className="my-2 my-sm-3">
                     <a className="contact-tel" href="tel:+919876543210">
                       +91 (9876) 543-210
                     </a>
@@ -105,11 +107,15 @@ const Footer = () => (
       </div>
       <div className="bottom-bar">
         <p>
-          © {new Date().getFullYear()} © 2022 <strong>Wiri</strong>. All rights
+          © {new Date().getFullYear()} <strong>Wiri</strong>. All rights
           reserved.
         </p>
-        <p>Cookie Policy</p>
-        <p>Privacy Policy</p>
+        <p>
+          <Link to="/cookie-policy">Cookie Policy</Link>
+        </p>
+        <p>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+        </p>
       </div>
     </div>
   </footer>

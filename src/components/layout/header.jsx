@@ -48,7 +48,7 @@ const Header = () => {
         <nav className="navbar fixed-top">
           <div className="container">
             <Link to="/">
-              <Logo />
+              <Logo className="logo" />
             </Link>
             <ul className={navMenuClsName}>
               {header_menus.map((item, idx) => (

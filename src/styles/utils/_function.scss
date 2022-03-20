@@ -3,7 +3,7 @@
 @function fs(
   $mobile-font-size,
   $desktop-font-size,
-  $mobile-viewport: 768px,
+  $mobile-viewport: 375px,
   $desktop-viewport: 1920px
 ) {
   $font-diff: math.div($desktop-font-size - $mobile-font-size, 1px);

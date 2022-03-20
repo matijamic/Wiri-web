@@ -45,6 +45,20 @@ footer {
         font-weight: 400;
         line-height: 39px;
         letter-spacing: 0.2px;
+        @include mq("phone", max) {
+          font-size: 12px;
+          line-height: 23px;
+        }
+      }
+      .contact-address {
+        color: #404040;
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.2px;
+        @include mq("phone", max) {
+          font-size: 12px;
+          line-height: 21px;
+        }
       }
       .contact-tel {
         color: #404040;
@@ -53,6 +67,11 @@ footer {
         font-weight: 400;
         line-height: 27px;
         letter-spacing: 0.2px;
+        white-space: nowrap;
+        @include mq("phone", max) {
+          font-size: 12px;
+          line-height: 23px;
+        }
       }
       .contact-mail {
         color: #4478db;
@@ -61,11 +80,15 @@ footer {
         line-height: 27px;
         text-decoration: underline;
         letter-spacing: 0.2px;
+        @include mq("phone", max) {
+          font-size: 12px;
+          line-height: 23px;
+        }
       }
       @include mq("tablet", max) {
         padding-bottom: 50px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 16px;
+        padding-right: 16px;
       }
     }
     .bottom-bar {
@@ -75,22 +98,28 @@ footer {
       padding-bottom: 60px;
       text-align: center;
       justify-content: center;
+      p,
+      a {
+        color: #404040;
+        @include mq("phone", max) {
+          font-size: 12px;
+          line-height: 20px;
+        }
+      }
       p {
         padding: 0 20px;
         border-right: 1px solid #d1d1d1;
-        color: #404040;
         &:last-child {
           border: none;
         }
       }
       @include mq("laptop", max) {
-        padding-top: 30px;
-        padding-bottom: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         p {
           &:first-child {
             width: 100%;
             border-right: none;
-            padding-bottom: 20px;
           }
         }
       }

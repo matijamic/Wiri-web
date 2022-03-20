@@ -20,7 +20,12 @@ const Heading = ({ title, subtitle, align }) => {
       left: ${align === "left" ? 0 : "50%"};
       transform: ${align === "left" ? 0 : "translateX(-50%)"};
       ${down("md")} {
-        bottom: 0;
+        bottom: -7px;
+      }
+      ${down("sm")} {
+        width: 32px;
+        border-radius: 2px;
+        height: 4px;
       }
     }
   `

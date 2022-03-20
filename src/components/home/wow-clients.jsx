@@ -5,11 +5,15 @@ import { down } from "styled-breakpoints"
 import Heading from "../common/heading"
 
 import { WowImg } from "../../utils/imgImport"
-import { provides } from "../../utils/staticData"
+import { benefits } from "../../utils/staticData"
 
-const Provider = styled.div`
+const Benfit = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  ${down("sm")} {
+    margin-bottom: 20px;
+  }
 `
 const Icon = styled.div`
   position: relative;
@@ -26,12 +30,13 @@ const Icon = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
   }
-`
-const Caption = styled.h3`
-  font-size: 35px;
-  font-weight: 700;
-  line-height: 45px;
-  letter-spacing: -1.05px;
+  ${down("sm")} {
+    width: 60px;
+    height: 60px;
+    img {
+      width: 24px;
+    }
+  }
 `
 const Content = styled.p`
   font-size: 21px;
@@ -39,6 +44,10 @@ const Content = styled.p`
   line-height: 29px;
   letter-spacing: -0.21px;
   color: #636363;
+  ${down("sm")} {
+    font-size: 13px;
+    line-height: 19px;
+  }
 `
 const Inner = styled.div`
   max-width: 556px;
@@ -66,17 +75,19 @@ const WowClients = () => (
 secondary benefits.`}
               align="left"
             />
-            {provides.map((item, idx) => (
-              <Provider key={idx}>
-                <Icon>
-                  <img src={item.icon} alt="icon" />
-                </Icon>
-                <div>
-                  <Caption>{item.caption}</Caption>
-                  <Content>{item.content}</Content>
-                </div>
-              </Provider>
-            ))}
+            <div className="mt-4 mt-md-5">
+              {benefits.map((item, idx) => (
+                <Benfit key={idx}>
+                  <Icon>
+                    <img src={item.icon} alt="icon" />
+                  </Icon>
+                  <div>
+                    <h3>{item.caption}</h3>
+                    <Content>{item.content}</Content>
+                  </div>
+                </Benfit>
+              ))}
+            </div>
           </Inner>
         </div>
       </Row>

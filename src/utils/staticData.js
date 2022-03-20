@@ -45,7 +45,7 @@ export const langs = [
   { value: "dut", label: "Dutch", icon: Dut },
 ]
 
-export const provides = [
+export const benefits = [
   {
     icon: Sale,
     caption: "Convert more sales",

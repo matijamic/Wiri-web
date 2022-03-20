@@ -32,7 +32,7 @@ const Inner = styled.div`
     }
   }
   ${down("sm")} {
-    padding-top: 80px;
+    padding-top: 50px;
     padding-bottom: 350px;
     padding-left: 0;
     padding-right: 0;
