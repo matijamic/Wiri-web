@@ -2,7 +2,7 @@ import React from "react"
 import { down } from "styled-breakpoints"
 import styled from "styled-components"
 
-const Heading = ({ title, subtitle, align }) => {
+const Heading = ({ title, subtitle, align = "center" }) => {
   const Headline = styled.div`
     text-align: ${align};
     z-index: 1;

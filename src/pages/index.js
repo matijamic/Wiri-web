@@ -7,6 +7,7 @@ import WowClients from "../components/home/wow-clients"
 import AppIntro from "../components/home/app-intro"
 import WebsiteWidget from "../components/home/website-widget"
 import CallToAction from "../components/home/call-action"
+import AllRule from "../components/home/all-rule"
 
 const HomePage = () => (
   <Layout>
@@ -16,6 +17,7 @@ const HomePage = () => (
     <AppIntro />
     <WebsiteWidget />
     <CallToAction />
+    <AllRule />
   </Layout>
 )
 

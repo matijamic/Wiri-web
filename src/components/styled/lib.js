@@ -27,6 +27,10 @@ export const SlickArrows = styled.div`
           }
         }
       }
+      ${down("sm")} {
+        width: 11px;
+        height: 17px;
+      }
     }
   }
 `

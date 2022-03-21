@@ -4,6 +4,9 @@ import {
   App3,
   App4,
   Audience,
+  Booking,
+  Conversation,
+  CRM,
   Deals,
   Dut,
   Eng,
@@ -21,11 +24,13 @@ import {
   Presence,
   Reserve,
   Reviews,
+  Rule1,
   Sale,
   Satisfaction,
   Spa,
   Twitter,
   Widget1,
+  WidgetBuilder,
 } from "./imgImport"
 
 export const header_menus = [
@@ -199,5 +204,28 @@ export const widgets = [
     name: `Useful 
     links`,
     img: Widget1,
+  },
+]
+
+export const rules = [
+  {
+    img: Rule1,
+    icon: CRM,
+    name: "CRM",
+  },
+  {
+    img: Rule1,
+    icon: Conversation,
+    name: "Conversations",
+  },
+  {
+    img: Rule1,
+    icon: Booking,
+    name: "Bookings",
+  },
+  {
+    img: Rule1,
+    icon: WidgetBuilder,
+    name: "Widget builder",
   },
 ]

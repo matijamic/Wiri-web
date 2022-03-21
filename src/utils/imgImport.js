@@ -40,6 +40,11 @@ import presence from "../images/icons/presence.svg"
 import reserve from "../images/icons/reserve.svg"
 import reviews from "../images/icons/reviews.svg"
 
+import crm from "../images/icons/crm.svg"
+import conversation from "../images/icons/conversation.svg"
+import booking from "../images/icons/booking.svg"
+import widgetBuilder from "../images/icons/widget-builder.svg"
+
 import widget1 from "../images/widget1.png"
 import widgetBack from "../images/widget-back.png"
 import ctaBack from "../images/cta-back.png"
@@ -86,6 +91,11 @@ export const OnlineMenu = onlineMenu
 export const Reserve = reserve
 export const Presence = presence
 export const Reviews = reviews
+
+export const CRM = crm
+export const Conversation = conversation
+export const Booking = booking
+export const WidgetBuilder = widgetBuilder
 
 export const Widget1 = widget1
 export const WidgetBack = widgetBack
