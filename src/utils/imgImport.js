@@ -42,6 +42,9 @@ import reviews from "../images/icons/reviews.svg"
 
 import widget1 from "../images/widget1.png"
 import widgetBack from "../images/widget-back.png"
+import ctaBack from "../images/cta-back.png"
+
+import rule1 from "../images/rule1.png"
 
 export const Logo = logo
 export const Logo2 = logo2
@@ -86,3 +89,6 @@ export const Reviews = reviews
 
 export const Widget1 = widget1
 export const WidgetBack = widgetBack
+export const CTABack = ctaBack
+
+export const Rule1 = rule1

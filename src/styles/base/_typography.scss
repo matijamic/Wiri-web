@@ -3,6 +3,9 @@ h1 {
   line-height: 100px;
   letter-spacing: -3.18px;
   font-weight: 700;
+  @include mq("tablet", max) {
+    line-height: 82px;
+  }
   @include mq("phone", max) {
     line-height: 46px;
   }
@@ -13,8 +16,12 @@ h2 {
   letter-spacing: -2.1px;
   line-height: 105px;
   font-weight: 700;
+  @include mq("tablet", max) {
+    line-height: 50px;
+    margin-bottom: 14px;
+  }
   @include mq("phone", max) {
-    line-height: 32px;
+    line-height: 35px;
   }
 }
 h3 {

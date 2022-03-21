@@ -118,7 +118,7 @@ const WebsiteWidget = () => {
                 <WidgetItem
                   key={idx}
                   onClick={() => setSelect(idx + 5)}
-                  active={idx === selected ? true : false}
+                  active={idx + 5 === selected ? true : false}
                 >
                   <p className="widget-name me-3 text-end">{item.name}</p>
                   <div className="widget-img">

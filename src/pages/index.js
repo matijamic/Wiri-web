@@ -15,11 +15,6 @@ const HomePage = () => (
     <WowClients />
     <AppIntro />
     <WebsiteWidget />
-    <div className="py-5"></div>
-    <div className="py-5"></div>
-    <div className="py-5"></div>
-    <div className="py-5"></div>
-
     <CallToAction />
   </Layout>
 )

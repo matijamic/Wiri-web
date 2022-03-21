@@ -19,5 +19,12 @@
     font-size: 31px;
     line-height: 41px;
     letter-spacing: -0.31px;
+    @include mq("phone", max) {
+      padding: 15px 18px;
+      font-size: 20px;
+      line-height: 20px;
+      letter-spacing: -0.34px;
+      border-radius: 5px;
+    }
   }
 }
