@@ -4,17 +4,28 @@ import {
   App3,
   App4,
   Audience,
+  Deals,
   Dut,
   Eng,
   Facebook,
   Fre,
+  Gallery,
+  Hours,
   Instagram,
   Ita,
+  Links,
+  LiveChat,
+  LocationMap,
+  OnlineMenu,
   Por,
+  Presence,
+  Reserve,
+  Reviews,
   Sale,
   Satisfaction,
   Spa,
   Twitter,
+  Widget1,
 } from "./imgImport"
 
 export const header_menus = [
@@ -125,5 +136,68 @@ export const socials = [
   {
     icon: Instagram,
     to: "/",
+  },
+]
+
+export const widgets = [
+  {
+    icon: LiveChat,
+    name: `Automated 
+    & live chat`,
+    img: Widget1,
+  },
+  {
+    icon: Reserve,
+    name: `Instant online reservations 
+    and appointments`,
+    img: Widget1,
+  },
+  {
+    icon: OnlineMenu,
+    name: `Online 
+    menu`,
+    img: Widget1,
+  },
+  {
+    icon: Deals,
+    name: `Deals & 
+    Promitions`,
+    img: Widget1,
+  },
+  {
+    icon: Gallery,
+    name: `Photo & 
+    video gallery`,
+    img: Widget1,
+  },
+  {
+    icon: Reviews,
+    name: `Business 
+    reviews`,
+    img: Widget1,
+  },
+  {
+    icon: Presence,
+    name: `Social media 
+    presence`,
+    img: Widget1,
+  },
+  {
+    icon: Hours,
+    name: `Openning 
+    hours`,
+    img: Widget1,
+  },
+  {
+    icon: LocationMap,
+    name: `Location map 
+    & Navigation`,
+    img: Widget1,
+  },
+  {
+    icon: Links,
+    name: `Useful 
+    links`,
+    img: Widget1,
   },
 ]

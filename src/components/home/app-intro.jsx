@@ -5,7 +5,7 @@ import { down } from "styled-breakpoints"
 
 import Heading from "../common/heading"
 
-import { Wrapper } from "../styled/lib"
+import { Wrapper, SlickArrows } from "../styled/lib"
 import { AppBack, LeftArrow, RightArrow } from "../../utils/imgImport"
 import { appImgs } from "../../utils/staticData"
 
@@ -42,6 +42,9 @@ const AppSlider = styled.div`
   position: absolute;
   top: 50%;
   width: 100%;
+  ${down("sm")} {
+    top: 40%;
+  }
 `
 const AppSlide = styled.div`
   padding: 12px;
@@ -49,29 +52,6 @@ const AppSlide = styled.div`
   max-width: 300px;
   background-color: white;
   box-shadow: 0 20px 73px rgba(83, 96, 129, 0.17);
-`
-const SlickArrows = styled.div`
-  display: none;
-  margin-top: 35px;
-  text-align: center;
-  ${down("xxl")} {
-    display: block;
-  }
-  button {
-    border: none;
-    background-color: unset;
-    padding: 0 20px;
-    svg {
-      &:hover {
-        g {
-          path {
-            fill: #4478db;
-            transition: all ease-in-out 0.2s;
-          }
-        }
-      }
-    }
-  }
 `
 
 const AppIntro = () => {
