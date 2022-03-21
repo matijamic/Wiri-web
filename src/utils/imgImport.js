@@ -29,6 +29,20 @@ import facebook from "../images/facebook.svg"
 import twitter from "../images/twitter.svg"
 import instagram from "../images/instagram.svg"
 
+import deals from "../images/icons/deals.svg"
+import gallery from "../images/icons/gallery.svg"
+import hours from "../images/icons/hours.svg"
+import links from "../images/icons/links.svg"
+import liveChat from "../images/icons/live-chat.svg"
+import map from "../images/icons/map.svg"
+import onlineMenu from "../images/icons/online-menu.svg"
+import presence from "../images/icons/presence.svg"
+import reserve from "../images/icons/reserve.svg"
+import reviews from "../images/icons/reviews.svg"
+
+import widget1 from "../images/widget1.png"
+import widgetBack from "../images/widget-back.png"
+
 export const Logo = logo
 export const Logo2 = logo2
 export const LeftArrow = leftArrow
@@ -58,3 +72,17 @@ export const App4 = app4
 export const Facebook = facebook
 export const Twitter = twitter
 export const Instagram = instagram
+
+export const Deals = deals
+export const Links = links
+export const Gallery = gallery
+export const Hours = hours
+export const LiveChat = liveChat
+export const Map = map
+export const OnlineMenu = onlineMenu
+export const Reserve = reserve
+export const Presence = presence
+export const Reviews = reviews
+
+export const Widget1 = widget1
+export const WidgetBack = widgetBack
