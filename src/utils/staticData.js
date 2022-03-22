@@ -102,7 +102,7 @@ export const faqs = [
     title: "Lorem ipsum dolor sit amet, consectetur?",
     content:
       "Lorem ipsum dolor sit consectetur adipiscing sit amet dui sed velit fringilla tincidunt.",
-  }
+  },
 ]
 
 export const appImgs = [App1, App2, App3, App4]
@@ -252,3 +252,70 @@ export const rules = [
     name: "Widget builder",
   },
 ]
+
+export const pricing_plans = {
+  monthly: [
+    {
+      type: "Basic",
+      price: "59",
+      items: [
+        "Up to 5 users",
+        "Max 200 objects / month",
+        "Unlimited queries",
+        "Unlimited analytics",
+      ],
+    },
+    {
+      type: "Optimum",
+      price: "99",
+      items: [
+        "Up to 5 users",
+        "Max 200 objects / month",
+        "Unlimited queries",
+        "Unlimited analytics",
+      ],
+    },
+    {
+      type: "Full",
+      price: "149",
+      items: [
+        "Up to 5 users",
+        "Max 200 objects / month",
+        "Unlimited queries",
+        "Unlimited analytics",
+      ],
+    },
+  ],
+  yearly: [
+    {
+      type: "Basic",
+      price: "49",
+      items: [
+        "Up to 5 users",
+        "Max 200 objects / month",
+        "Unlimited queries",
+        "Unlimited analytics",
+      ],
+    },
+    {
+      type: "Optimum",
+      price: "89",
+      items: [
+        "Up to 5 users",
+        "Max 200 objects / month",
+        "Unlimited queries",
+        "Unlimited analytics",
+      ],
+    },
+    {
+      type: "Full",
+      price: "139",
+      items: [
+        "Up to 5 users",
+        "Max 200 objects / month",
+        "Unlimited queries",
+        "Unlimited analytics",
+      ],
+    },
+  ],
+}

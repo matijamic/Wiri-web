@@ -8,6 +8,10 @@
     font-weight: 500;
     line-height: 23px;
     color: white;
+    &.active {
+      background-color: white;
+      color: $green;
+    }
   }
   &-blue {
     padding: 20px 33px;

@@ -16,9 +16,8 @@ const Row = styled.div`
   ${down("lg")} {
     flex-direction: column-reverse;
   }
-  ${down("sm")} {
+  ${down("md")} {
     h2 {
-      max-width: 205px;
       margin-left: auto;
       margin-right: auto;
       text-align: center;
@@ -26,6 +25,11 @@ const Row = styled.div`
         left: 50%;
         transform: translateX(-50%);
       }
+    }
+  }
+  ${down("sm")} {
+    h2 {
+      max-width: 205px;
     }
   }
 `

@@ -40,6 +40,9 @@ import presence from "../images/icons/presence.svg"
 import reserve from "../images/icons/reserve.svg"
 import reviews from "../images/icons/reviews.svg"
 
+import check1 from "../images/icons/check1.svg"
+import check2 from "../images/icons/check2.svg"
+
 import crm from "../images/icons/crm.svg"
 import conversation from "../images/icons/conversation.svg"
 import booking from "../images/icons/booking.svg"
@@ -48,9 +51,10 @@ import widgetBuilder from "../images/icons/widget-builder.svg"
 import widget1 from "../images/widget1.png"
 import widgetBack from "../images/widget-back.png"
 import ctaBack from "../images/cta-back.png"
+import pricingBack1 from "../images/pricing-back1.png"
+import pricingBack2 from "../images/pricing-back2.png"
 
 import rule1 from "../images/rule1.png"
-
 
 export const Logo = logo
 export const Logo2 = logo2
@@ -102,5 +106,10 @@ export const WidgetBuilder = widgetBuilder
 export const Widget1 = widget1
 export const WidgetBack = widgetBack
 export const CTABack = ctaBack
+export const PricingBack1 = pricingBack1
+export const PricingBack2 = pricingBack2
 
 export const Rule1 = rule1
+
+export const Check1 = check1
+export const Check2 = check2
