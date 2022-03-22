@@ -82,6 +82,29 @@ export const benefits = [
   },
 ]
 
+export const faqs = [
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur?",
+    content:
+      "Lorem ipsum dolor sit consectetur adipiscing sit amet dui sed velit fringilla tincidunt.",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur?",
+    content:
+      "Lorem ipsum dolor sit consectetur adipiscing sit amet dui sed velit fringilla tincidunt.",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur?",
+    content:
+      "Lorem ipsum dolor sit consectetur adipiscing sit amet dui sed velit fringilla tincidunt.",
+  },
+  {
+    title: "Lorem ipsum dolor sit amet, consectetur?",
+    content:
+      "Lorem ipsum dolor sit consectetur adipiscing sit amet dui sed velit fringilla tincidunt.",
+  }
+]
+
 export const appImgs = [App1, App2, App3, App4]
 
 export const footer_menus = [

@@ -40,15 +40,16 @@ const Inner = styled.div`
 `
 
 const CallToAction = () => (
-  <Wrapper className="container">
-    <Inner>
-      <Heading
-        title="Ready to get ahead of the competitors"
-        subtitle="Instant sign up, no credit card required"
-      />
-      <button className="btn-blue mt-3 mt-sm-5">Try for FREE</button>
-    </Inner>
-  </Wrapper>
+    <Wrapper className="container">
+        <Inner>
+            <Heading
+                title="Ready to get ahead of the competitors"
+                subtitle="Instant sign up, no credit card required"
+                align="center"
+            />
+            <button className="btn-blue mt-3 mt-sm-5">Try for FREE</button>
+        </Inner>
+    </Wrapper>
 )
 
 export default CallToAction

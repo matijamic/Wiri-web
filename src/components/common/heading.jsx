@@ -12,8 +12,9 @@ const Title = styled.h2`
     border-radius: 4px;
     background-color: #4478db;
     bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: ${props => (props.align === "left" ? "0" : "50%")};
+    transform: ${props =>
+      props.align === "left" ? "translateX(0)" : "translateX(-50%)"};
     ${down("md")} {
       bottom: -7px;
     }
@@ -33,14 +34,14 @@ const Subtitle = styled.p`
   }
 `
 const Headline = styled.div`
-  text-align: center;
+  text-align: ${props => props.align};
   z-index: 1;
 `
 
-const Heading = ({ title, subtitle }) => {
+const Heading = ({ title, subtitle, align }) => {
   return (
-    <Headline>
-      <Title className="title">
+    <Headline align={align}>
+      <Title className="title" align={align}>
         {title}
         <span className="txt-green">.</span>
       </Title>

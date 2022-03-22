@@ -57,3 +57,13 @@
     margin-right: auto;
   }
 }
+
+.faq-container {
+  margin: 145px 0;
+  @include mq("tablet", max) {
+    margin: 70px 0;
+  }
+  @include mq("phone", max) {
+    margin: 50px 0;
+  }
+}

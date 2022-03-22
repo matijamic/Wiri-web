@@ -5,7 +5,7 @@ import rightArrow from "../images/svgs/right-arrow.svg"
 
 import heroImg from "../images/hero-img.png"
 import wowImg from "../images/wow-clients.png"
-
+import faqImg from "../images/faq-person.png"
 //Flags
 import eng from "../images/flag/eng.svg"
 import spa from "../images/flag/spa.svg"
@@ -51,6 +51,7 @@ import ctaBack from "../images/cta-back.png"
 
 import rule1 from "../images/rule1.png"
 
+
 export const Logo = logo
 export const Logo2 = logo2
 export const LeftArrow = leftArrow
@@ -58,6 +59,7 @@ export const RightArrow = rightArrow
 
 export const HeroImg = heroImg
 export const WowImg = wowImg
+export const FaqImg = faqImg
 
 export const Eng = eng
 export const Spa = spa

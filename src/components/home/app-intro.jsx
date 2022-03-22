@@ -101,6 +101,7 @@ const AppIntro = () => {
           <Heading
             title="One app, so many possibilities"
             subtitle="Fully customize your app according to your brand and needs"
+            align="center"
           />
         </Inner>
       </Wrapper>
