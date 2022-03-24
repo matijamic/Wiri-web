@@ -225,7 +225,7 @@ const PricingSlide = styled.div`
     opacity: ${props => (props.active ? 0.3 : 0.1)};
   }
   .btn-green {
-    font-family: "Gelion - Semi Bold";
+    font-family: "Gelion-SemiBold";
     font-size: 26px;
     font-weight: 400;
     line-height: 41px;

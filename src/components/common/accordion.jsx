@@ -41,12 +41,10 @@ const Header = styled.div`
 `
 
 const Icon = styled.div`
+  position: relative;
   width: 45px;
   height: 45px;
-  display: flex;
   border-radius: 50%;
-  align-items: center;
-  text-align: center;
   background-color: ${props => (props.active ? "#08b689" : "#eaf0fb")};
   flex-shrink: 0;
   ${down("sm")} {
@@ -55,11 +53,12 @@ const Icon = styled.div`
   }
 `
 const Mark = styled.p`
-  width: 100%;
-  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 30px;
   font-weight: 700;
-  line-height: 70px;
   color: ${props => (props.active ? "#fff" : "#4478db")};
   ${down("sm")} {
     font-size: 18px;
@@ -72,13 +71,9 @@ const Accordion = ({ title, content }) => {
   return (
     <Article>
       <Header onClick={() => setExpanded(!expanded)}>
-        <Question active={expanded ? true : false}>{title}</Question>
-        <Icon active={expanded ? true : false}>
-          {expanded ? (
-            <Mark active={expanded ? true : false}>-</Mark>
-          ) : (
-            <Mark active={expanded ? true : false}>+</Mark>
-          )}
+        <Question active={expanded}>{title}</Question>
+        <Icon active={expanded}>
+          <Mark active={expanded}>{expanded ? "-" : "+"}</Mark>
         </Icon>
       </Header>
       {expanded && <Content>{content}</Content>}
