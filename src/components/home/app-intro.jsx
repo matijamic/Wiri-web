@@ -119,7 +119,7 @@ const AppIntro = () => {
             </div>
           ))}
         </Slider>
-        <SlickArrows>
+        <SlickArrows className="app-arrows">
           <button onClick={previous}>
             <LeftArrow />
           </button>

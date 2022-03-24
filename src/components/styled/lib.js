@@ -11,8 +11,8 @@ export const SlickArrows = styled.div`
   display: none;
   margin-top: 35px;
   text-align: center;
-  ${down("xxl")} {
-    display: block;
+  ${down("lg")} {
+    display: block !important;
   }
   button {
     border: none;

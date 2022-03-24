@@ -26,6 +26,7 @@ const Social = styled.a`
   position: relative;
   width: 65px;
   height: 65px;
+  flex-shrink: 0;
   background-color: white;
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.04);
   border-radius: 50%;

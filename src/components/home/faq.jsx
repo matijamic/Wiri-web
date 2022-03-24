@@ -29,7 +29,7 @@ const Row = styled.div`
   }
   ${down("sm")} {
     h2 {
-      max-width: 205px;
+      max-width: 203px;
     }
   }
 `
@@ -43,7 +43,7 @@ const Faq = () => (
         </div>
         <div className="col-lg-6">
           <Inner>
-            <Heading title="Frequently Asked Question " align="left" />
+            <Heading title="Frequently Asked Question" align="left" />
             <div className="mt-4 mt-md-5">
               {faqs.map((item, idx) => (
                 <Accordion key={idx} {...item} />

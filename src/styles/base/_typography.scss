@@ -1,48 +1,38 @@
 h1 {
   font-size: fs(35px, 105px);
-  line-height: 100px;
+  line-height: fs(46px, 106px);
   letter-spacing: -3.18px;
   font-weight: 700;
   @include mq("tablet", max) {
-    line-height: 82px;
-  }
-  @include mq("phone", max) {
-    line-height: 46px;
+    letter-spacing: -2.35px;
   }
 }
 
 h2 {
   font-size: fs(30px, 70px);
   letter-spacing: -2.1px;
-  line-height: 105px;
+  line-height: fs(32px, 105px);
   font-weight: 700;
   @include mq("tablet", max) {
-    line-height: 50px;
     margin-bottom: 14px;
-  }
-  @include mq("phone", max) {
-    line-height: 35px;
+    letter-spacing: -1.53px;
   }
 }
 h3 {
   font-size: fs(22px, 35px);
   font-weight: 700;
-  line-height: 45px;
+  line-height: fs(26px, 45px);
   letter-spacing: -1.05px;
-  @include mq("phone", max) {
-    line-height: 26px;
+  @include mq("tablet", max) {
+    letter-spacing: -1.12px;
   }
 }
 h4 {
-  font-family: "Gelion - Semi Bold";
-  font-size: 26px;
+  font-family: "Gelion-SemiBold";
+  font-size: fs(16px, 26px);
   font-weight: 400;
-  line-height: 35px;
+  line-height: fs(21px, 35px);
   letter-spacing: -0.78px;
-  @include mq("phone", max) {
-    font-size: 16px;
-    line-height: 21px;
-  }
 }
 
 .txt-green {
@@ -76,12 +66,8 @@ h4 {
 
 p {
   font-family: "Gelion";
-  font-size: 20px;
+  font-size: fs(18px, 20px);
   font-weight: 400;
-  line-height: 27px;
+  line-height: fs(22px, 27px);
   margin-bottom: 0;
-  @include mq("phone", max) {
-    font-size: 18px;
-    line-height: 22px;
-  }
 }

@@ -31,7 +31,51 @@
       }
     }
   }
-  @include mq("tablet", max) {
+  .right-side {
+    position: relative;
+    .review-img {
+      top: 0;
+      left: 60px;
+      width: fs(85px, 240px);
+      height: fs(50px, 139px);
+    }
+    .menu-img {
+      top: calc(40% - 50px);
+      left: 0;
+      transform: translateY(-50%);
+      width: fs(85px, 223px);
+      height: fs(105px, 323px);
+      animation-duration: 2s;
+    }
+    .deals-img {
+      top: fs(43px, 100px);
+      right: 20px;
+      width: fs(80px, 227px);
+      height: fs(54px, 153px);
+      animation-duration: 2.5s;
+    }
+    .question-img {
+      top: 35%;
+      right: -20px;
+      width: fs(89px, 250px);
+      height: fs(156px, 423px);
+      animation-duration: 3.23s;
+      @include mq("tablet", max) {
+        right: 0;
+      }
+    }
+    .qr-img {
+      bottom: 0px;
+      left: 50px;
+      width: fs(55px, 135px);
+      height: fs(55px, 135px);
+      animation-duration: 4s;
+      @include mq("desktop", max) {
+        bottom: 50px;
+      }
+    }
+  }
+  @include mq("laptop", max) {
     padding: 40px 20px;
     .right-side {
       margin-top: 40px;
@@ -65,5 +109,37 @@
   }
   @include mq("phone", max) {
     margin: 50px 0;
+  }
+}
+
+.app-arrows {
+  @include mq("desktop", max) {
+    display: block;
+  }
+}
+
+.pricing-arrows {
+  @include mq("laptop", max) {
+    display: block !important;
+  }
+}
+
+.float {
+  position: absolute;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    box-shadow: 0 25px 15px 0px rgba(0, 0, 0, 0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.6);
+    transform: translatey(0px);
   }
 }

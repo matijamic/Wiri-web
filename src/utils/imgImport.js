@@ -3,9 +3,16 @@ import logo2 from "../images/logo.svg"
 import leftArrow from "../images/svgs/left-arrow.svg"
 import rightArrow from "../images/svgs/right-arrow.svg"
 
-import heroImg from "../images/hero-img.png"
+import heroImg from "../images/main.png"
+import reviewImg from "../images/review.png"
+import questionImg from "../images/question.png"
+import qrImg from "../images/qr.png"
+import dealsImg from "../images/deals.png"
+import menuImg from "../images/menu.png"
+
 import wowImg from "../images/wow-clients.png"
 import faqImg from "../images/faq-person.png"
+
 //Flags
 import eng from "../images/flag/eng.svg"
 import spa from "../images/flag/spa.svg"
@@ -62,6 +69,12 @@ export const LeftArrow = leftArrow
 export const RightArrow = rightArrow
 
 export const HeroImg = heroImg
+export const ReviewImg = reviewImg
+export const QrImg = qrImg
+export const DealsImg = dealsImg
+export const QuestionImg = questionImg
+export const MenuImg = menuImg
+
 export const WowImg = wowImg
 export const FaqImg = faqImg
 

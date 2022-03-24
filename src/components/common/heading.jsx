@@ -11,7 +11,7 @@ const Title = styled.h2`
     height: 7px;
     border-radius: 4px;
     background-color: #4478db;
-    bottom: 10px;
+    bottom: 0;
     left: ${props => (props.align === "left" ? "0" : "50%")};
     transform: ${props =>
       props.align === "left" ? "translateX(0)" : "translateX(-50%)"};

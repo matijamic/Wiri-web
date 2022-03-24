@@ -101,7 +101,7 @@ const Tag = styled.div`
   box-shadow: 3px 8px 10px rgba(19, 14, 35, 0.03);
   border: 1px solid #e9e9e9;
   background-color: #ffffff;
-  font-family: "Gelion - Semi Bold";
+  font-family: "Gelion-SemiBold";
   font-size: 21px;
   font-weight: 400;
   line-height: 41px;
@@ -300,7 +300,7 @@ const PricingPlan = () => {
     centerMode: true,
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1025,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -342,7 +342,7 @@ const PricingPlan = () => {
             </div>
           ))}
         </Slider>
-        <SlickArrows>
+        <SlickArrows className="pricing-arrows">
           <button onClick={previous}>
             <LeftArrow />
           </button>
