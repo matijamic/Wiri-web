@@ -1,4 +1,5 @@
 import React, { useRef } from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
@@ -55,6 +56,22 @@ const AppSlide = styled.div`
 `
 
 const AppIntro = () => {
+  const { allStrapiAppScreenshot } = useStaticQuery(graphql`
+    query {
+      allStrapiAppScreenshot {
+        nodes {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+      }
+    }
+  `)
+  const appData = allStrapiAppScreenshot.nodes[0].data
+  console.log("App Data: ", appData)
+
   const slider = useRef()
   const next = () => {
     slider.current.slickNext()

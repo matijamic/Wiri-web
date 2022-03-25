@@ -45,11 +45,33 @@ const Icon = styled.div`
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  background-color: ${props => (props.active ? "#08b689" : "#eaf0fb")};
+  background-color: #eaf0fb;
   flex-shrink: 0;
+  &::before {
+    content: "+";
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 0;
+    color: #4478db;
+  }
+  &.active {
+    background-color: #08b689;
+    &::before {
+      content: "-";
+      color: #fff;
+    }
+  }
   ${down("sm")} {
     width: 26px;
     height: 26px;
+    &::before {
+      top: 50%;
+      font-size: 18px;
+    }
   }
 `
 const Mark = styled.p`
@@ -65,18 +87,18 @@ const Mark = styled.p`
     line-height: 41.15px;
   }
 `
-const Accordion = ({ title, content }) => {
+const Accordion = ({ data }) => {
   const [expanded, setExpanded] = useState(false)
 
   return (
     <Article>
       <Header onClick={() => setExpanded(!expanded)}>
-        <Question active={expanded}>{title}</Question>
-        <Icon active={expanded}>
-          <Mark active={expanded}>{expanded ? "-" : "+"}</Mark>
+        <Question active={expanded}>{data.attributes.question}</Question>
+        <Icon active={expanded} className={expanded ? "active" : ""}>
+          {/* <Mark active={expanded}>{expanded ? "-" : "+"}</Mark> */}
         </Icon>
       </Header>
-      {expanded && <Content>{content}</Content>}
+      {expanded && <Content>{data.attributes.answer}</Content>}
     </Article>
   )
 }

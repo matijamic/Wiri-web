@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -38,5 +42,25 @@ module.exports = {
       },
     },
     `gatsby-plugin-styled-components`,
+    {
+      resolve: "gatsby-source-strapi",
+      options: {
+        apiURL: process.env.STRAPI_API_URL,
+        accessToken: process.env.STRAPI_TOKEN,
+        collectionTypes: [
+          "app-screenshot",
+          "blog-category",
+          "blog-post",
+          "custom-script",
+          "dashboard-screenshot",
+          "faq",
+          "language",
+          "pricing",
+          "website-widget",
+        ],
+        singleTypes: [`homepage`],
+        queryLimit: 1000,
+      },
+    },
   ],
 }

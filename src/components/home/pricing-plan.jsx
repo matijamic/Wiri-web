@@ -1,4 +1,6 @@
 import React, { useState, useRef } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
 import Slider from "react-slick"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
@@ -14,7 +16,7 @@ import {
   Check2,
   PricingBack2,
 } from "../../utils/imgImport"
-import { pricing_plans } from "../../utils/staticData"
+// import { pricing_plans } from "../../utils/staticData"
 
 const Inner = styled.div`
   position: relative;
@@ -251,27 +253,30 @@ const Footer = styled.div`
 const PricingComponent = ({ data, active }) => {
   const Icon = active ? Check2 : Check1
   return (
-    <PricingSlide active={active}>
+    <PricingSlide active={data.attributes.label === "Optimum"}>
       <Header>
         <p className="price">
-          ${data.price}
+          $
+          {active
+            ? data.attributes.pricePerMonth
+            : data.attributes.pricePerYear}
           <span className="per-month">/Per Month</span>
         </p>
-        <p className="type">{data.type}</p>
+        <p className="type">{data.attributes.label}</p>
       </Header>
       <hr />
       <Body>
         <ul>
-          {data.items.map((item, idx) => (
+          {Object.keys(data.attributes.features).map((keyName, idx) => (
             <li className="d-flex align-items-center" key={idx}>
               <img className="me-2" src={Icon} alt="check icon" />
-              <p className="feature">{item}</p>
+              <p className="feature">{data.attributes.features[keyName]}</p>
             </li>
           ))}
         </ul>
         <Footer>
           <button className={`btn-green ${active ? "active" : ""}`}>
-            Get Started
+            {data.attributes.buttonLabel}
           </button>
         </Footer>
       </Body>
@@ -280,9 +285,33 @@ const PricingComponent = ({ data, active }) => {
 }
 
 const PricingPlan = () => {
+  const { allStrapiPricing } = useStaticQuery(graphql`
+    query {
+      allStrapiPricing {
+        nodes {
+          data {
+            attributes {
+              label
+              pricePerYear
+              pricePerMonth
+              features {
+                booking
+                history
+                modules
+                support
+                users
+              }
+              buttonLabel
+            }
+          }
+        }
+      }
+    }
+  `)
+  const pricingData = allStrapiPricing.nodes[0].data
+  // console.log(pricingData)
+
   const [plan, setPlan] = useState("monthly")
-  const pricingPlan =
-    plan === "monthly" ? pricing_plans.monthly : pricing_plans.yearly
 
   const slider = useRef()
   const next = () => {
@@ -320,13 +349,13 @@ const PricingPlan = () => {
           <Plan>
             <Button
               onClick={() => setPlan("monthly")}
-              active={plan === "monthly" ? true : false}
+              active={plan === "monthly"}
             >
               Monthly
             </Button>
             <Button
               onClick={() => setPlan("yearly")}
-              active={plan === "yearly" ? true : false}
+              active={plan === "yearly"}
             >
               Yearly
             </Button>
@@ -336,9 +365,12 @@ const PricingPlan = () => {
       </Wrapper>
       <PricingSlider>
         <Slider ref={c => (slider.current = c)} {...settings}>
-          {pricingPlan.map((item, idx) => (
+          {pricingData.map((item, idx) => (
             <div className="d-flex justify-content-center" key={idx}>
-              <PricingComponent data={item} active={idx === 1 ? true : false} />
+              <PricingComponent
+                data={item}
+                active={plan === "monthly" ? true : false}
+              />
             </div>
           ))}
         </Slider>

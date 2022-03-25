@@ -1,4 +1,6 @@
 import React, { useRef } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
 import Slider from "react-slick"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
@@ -6,8 +8,8 @@ import { down } from "styled-breakpoints"
 import Heading from "../common/heading"
 
 import { Wrapper } from "../styled/lib"
-import { LeftArrow, RightArrow } from "../../utils/imgImport"
-import { rules } from "../../utils/staticData"
+import { LeftArrow, RightArrow, Rule1 } from "../../utils/imgImport"
+// import { rules } from "../../utils/staticData"
 
 const SlickArrows = styled.div`
   position: relative !important;
@@ -108,6 +110,23 @@ const RuleList = styled.ul`
 `
 
 const AllRule = () => {
+  const { allStrapiDashboardScreenshot } = useStaticQuery(graphql`
+    query {
+      allStrapiDashboardScreenshot {
+        nodes {
+          data {
+            attributes {
+              label
+              SVG
+            }
+          }
+        }
+      }
+    }
+  `)
+  const dashboardData = allStrapiDashboardScreenshot.nodes[0].data
+  // console.log(dashboardData)
+
   const slider = useRef()
   const next = () => {
     slider.current.slickNext()
@@ -135,8 +154,12 @@ const AllRule = () => {
     ),
     customPaging: i => (
       <RuleItem>
-        <img className="me-1" src={rules[i].icon} alt="rule icon" />
-        <p>{rules[i].name}</p>
+        <img
+          className="me-1"
+          src={dashboardData[i].attributes.SVG}
+          alt="rule icon"
+        />
+        <p>{dashboardData[i].attributes.label}</p>
       </RuleItem>
     ),
     responsive: [
@@ -163,10 +186,10 @@ table reservations and answering their questions."
         ref={c => (slider.current = c)}
         {...settings}
       >
-        {rules.map((item, idx) => (
+        {dashboardData.map((item, idx) => (
           <div className="d-flex justify-content-center" key={idx}>
             <RuleSlide>
-              <img className="w-100" src={item.img} alt="app img" />
+              <img className="w-100" src={Rule1} alt={item.attributes.label} />
             </RuleSlide>
           </div>
         ))}
