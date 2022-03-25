@@ -45,8 +45,7 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.STRAPI_API_URL,
-        accessToken: process.env.STRAPI_TOKEN,
+        apiURL: "https://stage-app.wiri.io/strapi/api",
         collectionTypes: [
           "app-screenshot",
           "blog-category",

@@ -74,19 +74,7 @@ const Icon = styled.div`
     }
   }
 `
-const Mark = styled.p`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 30px;
-  font-weight: 700;
-  color: ${props => (props.active ? "#fff" : "#4478db")};
-  ${down("sm")} {
-    font-size: 18px;
-    line-height: 41.15px;
-  }
-`
+
 const Accordion = ({ data }) => {
   const [expanded, setExpanded] = useState(false)
 
@@ -94,9 +82,7 @@ const Accordion = ({ data }) => {
     <Article>
       <Header onClick={() => setExpanded(!expanded)}>
         <Question active={expanded}>{data.attributes.question}</Question>
-        <Icon active={expanded} className={expanded ? "active" : ""}>
-          {/* <Mark active={expanded}>{expanded ? "-" : "+"}</Mark> */}
-        </Icon>
+        <Icon active={expanded} className={expanded ? "active" : ""}></Icon>
       </Header>
       {expanded && <Content>{data.attributes.answer}</Content>}
     </Article>
