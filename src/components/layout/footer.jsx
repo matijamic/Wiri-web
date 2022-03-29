@@ -32,7 +32,7 @@ const Social = styled.a`
   border-radius: 50%;
   margin-right: 10px;
   &:hover {
-    background-color: ${({ theme }) => theme.colors.green};
+    background-color: "#08b689";
   }
   img {
     position: absolute;

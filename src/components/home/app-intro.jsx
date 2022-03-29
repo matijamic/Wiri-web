@@ -41,10 +41,10 @@ const Inner = styled.div`
 `
 const AppSlider = styled.div`
   position: absolute;
-  top: 50%;
+  top: 53%;
   width: 100%;
   ${down("sm")} {
-    top: 40%;
+    top: 37%;
   }
 `
 const AppSlide = styled.div`

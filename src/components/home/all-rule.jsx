@@ -177,8 +177,10 @@ const AllRule = () => {
     <Wrapper className="container">
       <Heading
         title="Rule it all"
-        subtitle="Wiri’s automated functionality makes it easy to engage with clients that land on your website while driving them to place
-table reservations and answering their questions."
+        subtitle="Wiri’s automated functionality makes it easy to
+        engage with clients that land on your website while
+        driving them to place table reservations and
+        answering their questions."
         align="center"
       />
       <Slider

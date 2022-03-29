@@ -5,8 +5,9 @@ $blue: #4478db;
 
 // Media query breakpoints
 $breakpoints: (
-  "phone": 680px,
+  "phone": 576px,
   "tablet": 769px,
-  "laptop": 1025px,
-  "desktop": 1441px,
+  "laptop": 993px,
+  "desktop": 1201px,
+  "x-desktop": 1441px,
 );

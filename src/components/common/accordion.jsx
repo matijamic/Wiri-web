@@ -50,8 +50,8 @@ const Icon = styled.div`
   &::before {
     content: "+";
     position: absolute;
-    top: 48%;
-    left: 50%;
+    top: 52%;
+    left: 52%;
     transform: translate(-50%, -50%);
     font-size: 30px;
     font-weight: 700;
@@ -62,6 +62,7 @@ const Icon = styled.div`
     background-color: #08b689;
     &::before {
       content: "-";
+      top: 48%;
       color: #fff;
     }
   }

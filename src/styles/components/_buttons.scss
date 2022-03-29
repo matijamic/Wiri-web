@@ -14,21 +14,44 @@
     }
   }
   &-blue {
-    padding: 20px 33px;
+    padding: 16px 15px;
     background-color: $blue;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     color: white;
     font-weight: 700;
-    font-size: 31px;
-    line-height: 41px;
-    letter-spacing: -0.31px;
-    @include mq("phone", max) {
-      padding: 15px 18px;
+    font-size: 19px;
+    line-height: 24.1px;
+    letter-spacing: -0.32px;
+    @include mq("phone") {
+      padding: 32px 48px;
+      font-size: 37px;
+      line-height: 49px;
+      letter-spacing: -0.31px;
+    }
+    @include mq("tablet") {
+      padding: 13px 20px;
+      font-size: 16px;
+      line-height: 21.18px;
+    }
+    @include mq("laptop") {
+      padding: 17px 23px;
       font-size: 20px;
-      line-height: 20px;
-      letter-spacing: -0.34px;
-      border-radius: 5px;
+      line-height: 25px;
+    }
+    @include mq("desktop") {
+      border-radius: 10px;
+      padding: 18px 27px;
+      font-size: 23px;
+      line-height: 30px;
+    }
+    @include mq("x-desktop") {
+      padding: 25px 40px;
+      font-size: 31px;
+      line-height: 41px;
+    }
+    &:hover {
+      background-color: #08b689;
     }
   }
 }

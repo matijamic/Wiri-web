@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Slider from "react-slick"
 import styled from "styled-components"
-import { down } from "styled-breakpoints"
+import { down, up } from "styled-breakpoints"
 
 import Heading from "../common/heading"
 
@@ -43,12 +43,12 @@ const Inner = styled.div`
     }
   }
   ${down("md")} {
-    margin: 50px 0 300px;
-    padding: 30px 35px 300px;
+    margin: 50px 0 400px;
+    padding: 30px 35px 400px;
     border-radius: 20px;
   }
   ${down("sm")} {
-    margin-bottom: 250px;
+    margin-bottom: 300px;
   }
 `
 const Plan = styled.div`
@@ -134,6 +134,7 @@ const Tag = styled.div`
     font-size: 10px;
     line-height: 19.17px;
     letter-spacing: -0.43px;
+    padding: 0 5px;
     &::after {
       border-color: transparent white transparent transparent;
       border-width: 10px;
@@ -154,16 +155,35 @@ const PricingSlider = styled.div`
 `
 const PricingSlide = styled.div`
   position: relative;
-  padding: 45px 30px;
-  box-shadow: 0 20px 73px rgba(58, 70, 100, 0.07);
-  border-radius: 25px;
+  /* width: 211px; */
+  padding: 29px 18px;
+  box-shadow: 0 12px 43px rgba(83, 96, 129, 0.17);
+  border-radius: 10px;
   background-color: ${props => (props.active ? "#08b689" : "white")};
   z-index: 0;
-  ${down("lg")} {
-    padding: 25px 18px;
-    box-shadow: 0 12px 43px rgba(83, 96, 129, 0.17);
-    border-radius: 10px;
+  /* ${up("sm")} {
+    width: 433px;
+    padding: 53px 39px;
+    border-radius: 20px;
+    box-shadow: 0 24px 88px rgba(83, 96, 129, 0.17);
   }
+  ${up("md")} {
+    width: 224px;
+    padding: 24px 20px;
+    box-shadow: 0 10px 38px rgba(83, 96, 129, 0.17);
+  }
+  ${up("lg")} {
+    width: 269px;
+    padding: 35px 23px;
+    box-shadow: 0 13px 46px rgba(83, 96, 129, 0.17);
+  }
+  ${up("xl")} {
+    width: 290px;
+  }
+  ${up("xxl")} {
+    width: 360px;
+    padding: 52px 26px;
+  } */
   &::after {
     content: "";
     position: absolute;
@@ -215,7 +235,26 @@ const PricingSlide = styled.div`
     font-weight: 500;
     line-height: 61px;
     letter-spacing: 0.42px;
+    ${down("xxl")} {
+      font-size: 18px;
+      line-height: 49px;
+      letter-spacing: 0.44px;
+    }
+    ${down("xl")} {
+      line-height: 46px;
+      letter-spacing: 0.48px;
+    }
+    ${down("lg")} {
+      font-size: 15px;
+      line-height: 38px;
+      letter-spacing: normal;
+    }
     ${down("md")} {
+      font-size: 25px;
+      line-height: 73px;
+      letter-spacing: 0.42px;
+    }
+    ${down("sm")} {
       font-size: 13px;
       line-height: 35.86px;
       letter-spacing: 0.44px;
@@ -275,7 +314,11 @@ const PricingComponent = ({ data, active }) => {
           ))}
         </ul>
         <Footer>
-          <button className={`btn-green ${active ? "active" : ""}`}>
+          <button
+            className={`btn-green ${
+              data.attributes.label === "Optimum" ? "active" : ""
+            }`}
+          >
             {data.attributes.buttonLabel}
           </button>
         </Footer>
