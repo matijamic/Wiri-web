@@ -1,0 +1,48 @@
+{
+  "Main": {
+    "label": {
+      "type": "Text",
+      "config": {
+        "label": "Label"
+      }
+    },
+    "per_month": {
+      "type": "Number",
+      "config": {
+        "label": "Per Month"
+      }
+    },
+    "per_year": {
+      "type": "Number",
+      "config": {
+        "label": "Per Year"
+      }
+    },
+    "button_label": {
+      "type": "Text",
+      "config": {
+        "label": "Button Label"
+      }
+    },
+    "features": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "item": {
+            "type": "Text",
+            "config": {
+              "label": "Item"
+            }
+          }
+        },
+        "label": "Features"
+      }
+    },
+    "order": {
+      "type": "Number",
+      "config": {
+        "label": "Order"
+      }
+    }
+  }
+}

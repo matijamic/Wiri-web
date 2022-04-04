@@ -20,7 +20,17 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 50,
+          backgroundColor: `transparent`,
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -43,22 +53,18 @@ module.exports = {
     },
     `gatsby-plugin-styled-components`,
     {
-      resolve: "gatsby-source-strapi",
+      resolve: "gatsby-source-prismic",
       options: {
-        apiURL: "https://stage-app.wiri.io/strapi/api",
-        collectionTypes: [
-          "app-screenshot",
-          "blog-category",
-          "blog-post",
-          "custom-script",
-          "dashboard-screenshot",
-          "faq",
-          "language",
-          "pricing",
-          "website-widget",
-        ],
-        singleTypes: [`homepage`],
-        queryLimit: 1000,
+        repositoryName: "wiri-web",
+        schemas: {
+          home_hero: require("./custom_types/home_hero.json"),
+          wow_clients: require("./custom_types/wow_clients.json"),
+          app_screenshots: require("./custom_types/app_screenshots.json"),
+          website_widgets: require("./custom_types/website_widgets.json"),
+          dashboard_screenshots: require("./custom_types/dashboard_screenshots.json"),
+          pricing: require("./custom_types/pricing.json"),
+          faqs: require("./custom_types/faqs.json"),
+        },
       },
     },
   ],

@@ -1,32 +1,32 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import {
   DealsImg,
-  HeroImg,
   MenuImg,
   QuestionImg,
   ReviewImg,
 } from "../../utils/imgImport"
 
 const HomeHero = () => {
-  const { allStrapiHomepage } = useStaticQuery(graphql`
+  const { allPrismicHomeHero } = useStaticQuery(graphql`
     query {
-      allStrapiHomepage {
+      allPrismicHomeHero {
         nodes {
           data {
-            attributes {
-              texts {
-                title
-                subtitle
-              }
+            title
+            subtitle
+            hero_image {
+              gatsbyImageData
             }
           }
         }
       }
     }
   `)
-  const homeData = allStrapiHomepage.nodes[0].data.attributes
+  const homeData = allPrismicHomeHero.nodes[0].data
+  const heroImg = getImage(homeData.hero_image)
 
   return (
     <section className="container">
@@ -34,16 +34,16 @@ const HomeHero = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 left-side">
             <h1 className="title">
-              {homeData.texts.title}
+              {homeData.title}
               {/* <span className="blue-line">business app</span> */}
               <span className="txt-green">.</span>
             </h1>
-            <p className="subtitle">{homeData.texts.subtitle}</p>
+            <p className="subtitle mb-5">{homeData.subtitle}</p>
             <button className="btn-blue">Try for FREE</button>
             <p className="bottom-text">No credit card required</p>
           </div>
           <div className="col-lg-6 right-side">
-            <img className="w-100" src={HeroImg} alt="hero img" />
+            <GatsbyImage image={heroImg} alt="hero img" />
             <img
               className="float review-img"
               src={ReviewImg}

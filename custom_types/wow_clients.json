@@ -1,0 +1,52 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title"
+      }
+    },
+    "subtitle": {
+      "type": "Text",
+      "config": {
+        "label": "Subtitle"
+      }
+    },
+    "background": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Background"
+      }
+    },
+    "benefits": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Icon"
+            }
+          },
+          "title": {
+            "type": "Text",
+            "config": {
+              "label": "Title"
+            }
+          },
+          "content": {
+            "type": "Text",
+            "config": {
+              "label": "Content"
+            }
+          }
+        },
+        "label": "Benefits"
+      }
+    }
+  }
+}

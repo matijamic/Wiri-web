@@ -1,11 +1,13 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { down, up } from "styled-breakpoints"
 
 import Heading from "../common/heading"
 
-import { WowImg } from "../../utils/imgImport"
-import { benefits } from "../../utils/staticData"
+// import { WowImg } from "../../utils/imgImport"
+// import { benefits } from "../../utils/staticData"
 
 const Benfit = styled.div`
   display: flex;
@@ -115,39 +117,64 @@ const Row = styled.div`
   }
 `
 
-const WowClients = () => (
-  <section className="wow-clients">
-    <div className="container">
-      <Row className="row align-items-center justify-content-around">
-        <div className="col-lg-6 mt-5 mt-lg-none">
-          <img className="w-100" src={WowImg} alt="wow img" />
-        </div>
-        <div className="col-lg-6">
-          <Inner>
-            <Heading
-              title="Wow your clients"
-              subtitle={`Provide an overview of this product's
-secondary benefits.`}
-              align="left"
-            />
-            <div className="mt-4 mt-md-5">
-              {benefits.map((item, idx) => (
-                <Benfit key={idx}>
-                  <Icon>
-                    <img src={item.icon} alt="icon" />
-                  </Icon>
-                  <div>
-                    <h3>{item.caption}</h3>
-                    <Content>{item.content}</Content>
-                  </div>
-                </Benfit>
-              ))}
-            </div>
-          </Inner>
-        </div>
-      </Row>
-    </div>
-  </section>
-)
+const WowClients = () => {
+  const { allPrismicWowClients } = useStaticQuery(graphql`
+    query {
+      allPrismicWowClients {
+        nodes {
+          data {
+            title
+            subtitle
+            background {
+              gatsbyImageData
+            }
+            benefits {
+              title
+              content
+              icon {
+                url
+              }
+            }
+          }
+        }
+      }
+    }
+  `)
+  const wowData = allPrismicWowClients.nodes[0].data
+  const backImg = getImage(wowData.background)
 
+  return (
+    <section className="wow-clients">
+      <div className="container">
+        <Row className="row align-items-center justify-content-around">
+          <div className="col-lg-6 mt-5 mt-lg-none">
+            <GatsbyImage image={backImg} alt="wow img" />
+          </div>
+          <div className="col-lg-6">
+            <Inner>
+              <Heading
+                title={wowData.title}
+                subtitle={wowData.subtitle}
+                align="left"
+              />
+              <div className="mt-4 mt-md-5">
+                {wowData.benefits.map((item, idx) => (
+                  <Benfit key={idx}>
+                    <Icon>
+                      <img src={item.icon.url} alt="icon" />
+                    </Icon>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <Content>{item.content}</Content>
+                    </div>
+                  </Benfit>
+                ))}
+              </div>
+            </Inner>
+          </div>
+        </Row>
+      </div>
+    </section>
+  )
+}
 export default WowClients

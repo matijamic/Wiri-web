@@ -1,0 +1,38 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title"
+      }
+    },
+    "image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Image"
+      }
+    },
+    "questions": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "question": {
+            "type": "Text",
+            "config": {
+              "label": "Question"
+            }
+          },
+          "answer": {
+            "type": "Text",
+            "config": {
+              "label": "Answer"
+            }
+          }
+        },
+        "label": "Questions"
+      }
+    }
+  }
+}

@@ -82,10 +82,10 @@ const Accordion = ({ data }) => {
   return (
     <Article>
       <Header onClick={() => setExpanded(!expanded)}>
-        <Question active={expanded}>{data.attributes.question}</Question>
+        <Question active={expanded}>{data.question}</Question>
         <Icon active={expanded} className={expanded ? "active" : ""}></Icon>
       </Header>
-      {expanded && <Content>{data.attributes.answer}</Content>}
+      {expanded && <Content>{data.answer}</Content>}
     </Article>
   )
 }

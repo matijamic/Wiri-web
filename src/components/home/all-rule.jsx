@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Slider from "react-slick"
 import styled from "styled-components"
@@ -8,7 +9,7 @@ import { down } from "styled-breakpoints"
 import Heading from "../common/heading"
 
 import { Wrapper } from "../styled/lib"
-import { LeftArrow, RightArrow, Rule1 } from "../../utils/imgImport"
+import { LeftArrow, RightArrow } from "../../utils/imgImport"
 // import { rules } from "../../utils/staticData"
 
 const SlickArrows = styled.div`
@@ -110,22 +111,29 @@ const RuleList = styled.ul`
 `
 
 const AllRule = () => {
-  const { allStrapiDashboardScreenshot } = useStaticQuery(graphql`
+  const { allPrismicDashboardScreenshots } = useStaticQuery(graphql`
     query {
-      allStrapiDashboardScreenshot {
+      allPrismicDashboardScreenshots {
         nodes {
           data {
-            attributes {
+            title
+            subtitle
+            screenshots {
               label
-              SVG
+              icon {
+                url
+              }
+              screenshot {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
   `)
-  const dashboardData = allStrapiDashboardScreenshot.nodes[0].data
-  // console.log(dashboardData)
+  const dashboardData = allPrismicDashboardScreenshots.nodes[0].data
+  const screenshots = dashboardData.screenshots
 
   const slider = useRef()
   const next = () => {
@@ -154,12 +162,8 @@ const AllRule = () => {
     ),
     customPaging: i => (
       <RuleItem>
-        <img
-          className="me-1"
-          src={dashboardData[i].attributes.SVG}
-          alt="rule icon"
-        />
-        <p>{dashboardData[i].attributes.label}</p>
+        <img className="me-1" src={screenshots[i].icon.url} alt="rule icon" />
+        <p>{screenshots[i].label}</p>
       </RuleItem>
     ),
     responsive: [
@@ -176,11 +180,8 @@ const AllRule = () => {
   return (
     <Wrapper className="container">
       <Heading
-        title="Rule it all"
-        subtitle="Wiri’s automated functionality makes it easy to
-        engage with clients that land on your website while
-        driving them to place table reservations and
-        answering their questions."
+        title={dashboardData.title}
+        subtitle={dashboardData.subtitle}
         align="center"
       />
       <Slider
@@ -188,10 +189,10 @@ const AllRule = () => {
         ref={c => (slider.current = c)}
         {...settings}
       >
-        {dashboardData.map((item, idx) => (
+        {screenshots.map((item, idx) => (
           <div className="d-flex justify-content-center" key={idx}>
             <RuleSlide>
-              <img className="w-100" src={Rule1} alt={item.attributes.label} />
+              <GatsbyImage image={getImage(item.screenshot)} alt={item.label} />
             </RuleSlide>
           </div>
         ))}

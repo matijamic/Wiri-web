@@ -1,0 +1,45 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title"
+      }
+    },
+    "subtitle": {
+      "type": "Text",
+      "config": {
+        "label": "Subtitle"
+      }
+    },
+    "screenshots": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "image": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Image"
+            }
+          },
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "Name"
+            }
+          },
+          "enabled": {
+            "type": "Boolean",
+            "config": {
+              "default_value": true,
+              "label": "Enabled"
+            }
+          }
+        },
+        "label": "Screenshots"
+      }
+    }
+  }
+}

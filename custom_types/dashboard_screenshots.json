@@ -1,0 +1,46 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title"
+      }
+    },
+    "subtitle": {
+      "type": "Text",
+      "config": {
+        "label": "Subtitle"
+      }
+    },
+    "screenshots": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Icon"
+            }
+          },
+          "screenshot": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Screenshot"
+            }
+          },
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label"
+            }
+          }
+        },
+        "label": "Screenshots"
+      }
+    }
+  }
+}

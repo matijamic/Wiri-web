@@ -1,0 +1,40 @@
+{
+  "Main": {
+    "title": {
+      "type": "Text",
+      "config": {
+        "label": "Title"
+      }
+    },
+    "widgets": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "screenshot": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Screenshot"
+            }
+          },
+          "icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Icon"
+            }
+          },
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label"
+            }
+          }
+        },
+        "label": "Widgets"
+      }
+    }
+  }
+}

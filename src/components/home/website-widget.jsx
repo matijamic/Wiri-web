@@ -1,17 +1,12 @@
 import React, { useState, useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Slider from "react-slick"
 import styled from "styled-components"
 import { down, up } from "styled-breakpoints"
 
 import { SlickArrows } from "../styled/lib"
-import {
-  WidgetBack,
-  LeftArrow,
-  RightArrow,
-  Widget1,
-} from "../../utils/imgImport"
+import { WidgetBack, LeftArrow, RightArrow } from "../../utils/imgImport"
 // import { widgets } from "../../utils/staticData"
 
 const Section = styled.section`
@@ -143,37 +138,44 @@ const ItemBox = ({ active, data, reverse }) => (
     active={active}
   >
     <div className="widget-img">
-      <img src={data.attributes.SVG} alt="widget img" />
+      <img src={data.icon.url} alt="icon" />
     </div>
     <p className={`widget-name ${reverse ? "text-end me-2" : "ms-2"}`}>
-      {data.attributes.Label}
+      {data.label}
     </p>
   </WidgetItem>
 )
 
 const WebsiteWidget = () => {
-  const { allStrapiWebsiteWidget } = useStaticQuery(graphql`
+  const { allPrismicWebsiteWidgets } = useStaticQuery(graphql`
     query {
-      allStrapiWebsiteWidget {
+      allPrismicWebsiteWidgets {
         nodes {
           data {
-            attributes {
-              Label
-              SVG
+            title
+            widgets {
+              label
+              icon {
+                url
+              }
+              screenshot {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
   `)
-  const widgetData = allStrapiWebsiteWidget.nodes[0].data
+  const widgetData = allPrismicWebsiteWidgets.nodes[0].data
 
   const widgets1 = []
   const widgets2 = []
-  const widgetLength = widgetData.length
-  for (let i = 0; i < widgetLength / 2; i++) widgets2.push(widgetData[i])
+  const widgets = widgetData.widgets
+  const widgetLength = widgets.length
+  for (let i = 0; i < widgetLength / 2; i++) widgets2.push(widgets[i])
   for (let i = widgetLength / 2; i < widgetLength; i++)
-    widgets1.push(widgetData[i])
+    widgets1.push(widgets[i])
 
   const [selected, setSelect] = useState(0)
   const slider = useRef()
@@ -210,22 +212,22 @@ const WebsiteWidget = () => {
     <Section>
       <div className="container">
         <Title>
-          Use as a <span className="blue-line">website widget</span>
+          {widgetData.title}
           <span className="txt-green">.</span>
         </Title>
         <div className="row align-items-center mt-3 d-none d-lg-flex">
           <div className="col-4 d-flex justify-content-end">
-            <ul className="d-flex flex-column align-items-end">
+            <ul>
               {widgets1?.map((item, idx) => (
                 <div
-                  onClick={() => setSelect(idx + widgetLength / 2 + 1)}
-                  onKeyDown={() => setSelect(idx + widgetLength / 2 + 1)}
+                  onClick={() => setSelect(idx + widgetLength / 2)}
+                  onKeyDown={() => setSelect(idx + widgetLength / 2)}
                   role="presentation"
                   key={idx}
                 >
                   <ItemBox
                     data={item}
-                    active={idx + (widgetLength / 2 + 1) === selected}
+                    active={idx + widgetLength / 2 === selected}
                     reverse
                   />
                 </div>
@@ -233,10 +235,13 @@ const WebsiteWidget = () => {
             </ul>
           </div>
           <WidgetImg className="col-4">
-            <img src={Widget1} alt="widget img" />
+            <GatsbyImage
+              image={getImage(widgets[selected].screenshot)}
+              alt="widget img"
+            />
           </WidgetImg>
           <div className="col-4 ">
-            <ul className=" ">
+            <ul>
               {widgets2?.map((item, idx) => (
                 <div
                   onClick={() => setSelect(idx)}
@@ -257,13 +262,16 @@ const WebsiteWidget = () => {
           ref={c => (slider.current = c)}
           {...settings}
         >
-          {widgetData.map((item, idx) => (
+          {widgets.map((item, idx) => (
             <div
               className="d-flex flex-column align-items-center justify-content-center"
               key={idx}
             >
               <WidgetSlide>
-                <img className="w-100" src={Widget1} alt="widget img" />
+                <GatsbyImage
+                  image={getImage(widgets[selected].screenshot)}
+                  alt="widget img"
+                />
               </WidgetSlide>
               <ItemBox data={item} active={idx === selected} />
             </div>

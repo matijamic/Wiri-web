@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Slider from "react-slick"
 import styled from "styled-components"
 import { down } from "styled-breakpoints"
@@ -8,8 +9,11 @@ import Heading from "../common/heading"
 
 import { Wrapper, SlickArrows } from "../styled/lib"
 import { AppBack, LeftArrow, RightArrow } from "../../utils/imgImport"
-import { appImgs } from "../../utils/staticData"
+// import { appImgs } from "../../utils/staticData"
 
+const Section = styled.section`
+  margin-bottom: 450px;
+`
 const Inner = styled.div`
   position: relative;
   padding: 150px 50px 400px;
@@ -56,21 +60,25 @@ const AppSlide = styled.div`
 `
 
 const AppIntro = () => {
-  const { allStrapiAppScreenshot } = useStaticQuery(graphql`
+  const { allPrismicAppScreenshots } = useStaticQuery(graphql`
     query {
-      allStrapiAppScreenshot {
+      allPrismicAppScreenshots {
         nodes {
           data {
-            attributes {
+            title
+            subtitle
+            screenshots {
               name
+              image {
+                gatsbyImageData
+              }
             }
           }
         }
       }
     }
   `)
-  const appData = allStrapiAppScreenshot.nodes[0].data
-  console.log("App Data: ", appData)
+  const appData = allPrismicAppScreenshots.nodes[0].data
 
   const slider = useRef()
   const next = () => {
@@ -112,12 +120,12 @@ const AppIntro = () => {
   }
 
   return (
-    <div className="position-relative">
+    <Section className="position-relative">
       <Wrapper className="container">
         <Inner>
           <Heading
-            title="One app, so many possibilities"
-            subtitle="Fully customize your app according to your brand and needs"
+            title={appData.title}
+            subtitle={appData.subtitle}
             align="center"
           />
         </Inner>
@@ -128,10 +136,11 @@ const AppIntro = () => {
           ref={c => (slider.current = c)}
           {...settings}
         >
-          {appImgs.map((item, idx) => (
+          {appData.screenshots.map((item, idx) => (
             <div className="d-flex justify-content-center" key={idx}>
               <AppSlide>
-                <img className="w-100" src={item} alt="app img" />
+                <GatsbyImage image={getImage(item.image)} alt={item.name} />
+                {/* <img className="w-100" src={item} alt={item.name} /> */}
               </AppSlide>
             </div>
           ))}
@@ -145,7 +154,7 @@ const AppIntro = () => {
           </button>
         </SlickArrows>
       </AppSlider>
-    </div>
+    </Section>
   )
 }
 export default AppIntro

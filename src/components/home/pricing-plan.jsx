@@ -161,29 +161,29 @@ const PricingSlide = styled.div`
   border-radius: 10px;
   background-color: ${props => (props.active ? "#08b689" : "white")};
   z-index: 0;
-  /* ${up("sm")} {
-    width: 433px;
-    padding: 53px 39px;
+  ${up("sm")} {
+    /* width: 433px;
+    padding: 53px 39px; */
     border-radius: 20px;
     box-shadow: 0 24px 88px rgba(83, 96, 129, 0.17);
   }
   ${up("md")} {
-    width: 224px;
-    padding: 24px 20px;
+    /* width: 224px;
+    padding: 24px 20px; */
     box-shadow: 0 10px 38px rgba(83, 96, 129, 0.17);
   }
   ${up("lg")} {
-    width: 269px;
-    padding: 35px 23px;
+    /* width: 269px;
+    padding: 35px 23px; */
     box-shadow: 0 13px 46px rgba(83, 96, 129, 0.17);
   }
   ${up("xl")} {
-    width: 290px;
+    /* width: 290px; */
   }
   ${up("xxl")} {
-    width: 360px;
-    padding: 52px 26px;
-  } */
+    /* width: 360px;
+    padding: 52px 26px; */
+  }
   &::after {
     content: "";
     position: absolute;
@@ -289,37 +289,34 @@ const Footer = styled.div`
   text-align: center;
 `
 
-const PricingComponent = ({ data, active }) => {
+const PricingComponent = ({ pricing, active }) => {
   const Icon = active ? Check2 : Check1
   return (
-    <PricingSlide active={data.attributes.label === "Optimum"}>
+    <PricingSlide active={pricing.data.label === "Optimum"}>
       <Header>
         <p className="price">
-          $
-          {active
-            ? data.attributes.pricePerMonth
-            : data.attributes.pricePerYear}
+          ${active ? pricing.data.per_month : pricing.data.per_year}
           <span className="per-month">/Per Month</span>
         </p>
-        <p className="type">{data.attributes.label}</p>
+        <p className="type">{pricing.data.label}</p>
       </Header>
       <hr />
       <Body>
         <ul>
-          {Object.keys(data.attributes.features).map((keyName, idx) => (
+          {pricing.data.features?.map((feature, idx) => (
             <li className="d-flex align-items-center" key={idx}>
               <img className="me-2" src={Icon} alt="check icon" />
-              <p className="feature">{data.attributes.features[keyName]}</p>
+              <p className="feature">{feature.item}</p>
             </li>
           ))}
         </ul>
         <Footer>
           <button
             className={`btn-green ${
-              data.attributes.label === "Optimum" ? "active" : ""
+              pricing.data.label === "Optimum" ? "active" : ""
             }`}
           >
-            {data.attributes.buttonLabel}
+            {pricing.data.button_label}
           </button>
         </Footer>
       </Body>
@@ -328,35 +325,31 @@ const PricingComponent = ({ data, active }) => {
 }
 
 const PricingPlan = () => {
-  const { allStrapiPricing } = useStaticQuery(graphql`
+  const { allPrismicPricing } = useStaticQuery(graphql`
     query {
-      allStrapiPricing {
+      allPrismicPricing {
         nodes {
           data {
-            attributes {
-              label
-              pricePerYear
-              pricePerMonth
-              features {
-                booking
-                history
-                modules
-                support
-                users
-              }
-              buttonLabel
+            label
+            per_month
+            per_year
+            button_label
+            features {
+              item
             }
+            order
           }
         }
       }
     }
   `)
-  const pricingData = allStrapiPricing.nodes[0].data
-  // console.log(pricingData)
+  const pricingData = allPrismicPricing.nodes.sort(
+    (x, y) => x.data.order - y.data.order
+  )
 
   const [plan, setPlan] = useState("monthly")
-
   const slider = useRef()
+
   const next = () => {
     slider.current.slickNext()
   }
@@ -411,7 +404,7 @@ const PricingPlan = () => {
           {pricingData.map((item, idx) => (
             <div className="d-flex justify-content-center" key={idx}>
               <PricingComponent
-                data={item}
+                pricing={item}
                 active={plan === "monthly" ? true : false}
               />
             </div>
