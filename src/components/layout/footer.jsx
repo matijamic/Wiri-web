@@ -1,9 +1,9 @@
-import { Link } from "gatsby"
 import React from "react"
-import { down } from "styled-breakpoints"
+import { Link, useStaticQuery, graphql } from "gatsby"
+
 import styled from "styled-components"
+import { down } from "styled-breakpoints"
 import { Logo2 } from "../../utils/imgImport"
-import { footer_menus, socials } from "../../utils/staticData"
 
 const Wiri = styled.div`
   ${down("lg")} {
@@ -57,69 +57,121 @@ const FooterMenu = ({ data }) => (
   </div>
 )
 
-const Footer = () => (
-  <footer className="container">
-    <div className="footer-wrapper">
-      <div className="footer-menu">
-        <div className="row">
-          <div className="col-12 col-lg-3">
-            <Wiri>
-              <img src={Logo2} alt="logo" />
-              <Socials className="d-flex align-items-center">
-                {socials.map((item, idx) => (
-                  <Social href={item.to} key={idx}>
-                    <img src={item.icon} alt="social icon" />
-                  </Social>
+const Footer = () => {
+  const footer_menus = []
+  const { allPrismicFooter, allPrismicNavigation } = useStaticQuery(graphql`
+    query {
+      allPrismicFooter {
+        nodes {
+          data {
+            socials {
+              icon {
+                url
+              }
+              to
+            }
+            contact_label
+            address
+            telephone
+            mail
+            copyright
+            cookie_policy
+            privacy_policy
+            menu {
+              id
+            }
+            menu2 {
+              id
+            }
+          }
+        }
+      }
+      allPrismicNavigation {
+        nodes {
+          data {
+            menu_type
+            items {
+              name
+              to
+            }
+          }
+          prismicId
+        }
+      }
+    }
+  `)
+  const footerData = allPrismicFooter.nodes[0].data
+  const navData1 = allPrismicNavigation.nodes.filter(
+    item => item.prismicId === footerData.menu.id
+  )[0].data
+  const navData2 = allPrismicNavigation.nodes.filter(
+    item => item.prismicId === footerData.menu2.id
+  )[0].data
+
+  footer_menus.push(navData1, navData2)
+
+  return (
+    <footer className="container">
+      <div className="footer-wrapper">
+        <div className="footer-menu">
+          <div className="row">
+            <div className="col-12 col-lg-3">
+              <Wiri>
+                <img src={Logo2} alt="logo" />
+                <Socials className="d-flex align-items-center">
+                  {footerData.socials.map((item, idx) => (
+                    <Social href={item.to} key={idx}>
+                      <img src={item.icon.url} alt="social icon" />
+                    </Social>
+                  ))}
+                </Socials>
+              </Wiri>
+            </div>
+            <div className="col-12 col-lg-9">
+              <div className="row">
+                {footer_menus.map((item, idx) => (
+                  <FooterMenu data={item} key={idx} />
                 ))}
-              </Socials>
-            </Wiri>
-          </div>
-          <div className="col-12 col-lg-9">
-            <div className="row">
-              {footer_menus.map((item, idx) => (
-                <FooterMenu data={item} key={idx} />
-              ))}
-              <div className="col-4">
-                <h4>Contact Us</h4>
-                <ul>
-                  <li>
-                    <p className="contact-address">
-                      Address Line Here Lorem Ipsum Dolor Sit 123456
-                    </p>
-                  </li>
-                  <li className="my-2 my-sm-3">
-                    <a className="contact-tel" href="tel:+919876543210">
-                      +91 (9876) 543-210
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      className="contact-mail"
-                      href="mailto:info@wirigmail.com"
-                    >
-                      info@wirigmail.com
-                    </a>
-                  </li>
-                </ul>
+                <div className="col-4">
+                  <h4>{footerData.contact_label}</h4>
+                  <ul>
+                    <li>
+                      <p className="contact-address">{footerData.address}</p>
+                    </li>
+                    <li className="my-2 my-sm-3">
+                      <a className="contact-tel" href="tel:+919876543210">
+                        {footerData.telephone}
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="contact-mail"
+                        href="mailto:info@wirigmail.com"
+                      >
+                        {footerData.mail}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div className="bottom-bar">
+          <p>
+            © {new Date().getFullYear()} <strong>Wiri</strong>.{" "}
+            {footerData.copyright}
+          </p>
+          <p>
+            <Link to="/cookie-policy">{footerData.cookie_policy}</Link>
+          </p>
+          <p>
+            <Link to="/privacy-policy">{footerData.privacy_policy}</Link>
+          </p>
+        </div>
       </div>
-      <div className="bottom-bar">
-        <p>
-          © {new Date().getFullYear()} <strong>Wiri</strong>. All rights
-          reserved.
-        </p>
-        <p>
-          <Link to="/cookie-policy">Cookie Policy</Link>
-        </p>
-        <p>
-          <Link to="/privacy-policy">Privacy Policy</Link>
-        </p>
-      </div>
-    </div>
-  </footer>
-)
+    </footer>
+  )
+}
 
 export default Footer

@@ -1,12 +1,51 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Select, { components } from "react-select"
 
-import { Logo } from "../../utils/imgImport"
-import { header_menus, langs } from "../../utils/staticData"
-
 const Header = () => {
-  const [language, setLanguage] = useState(langs[0])
+  const { allPrismicHeader, allPrismicNavigation } = useStaticQuery(graphql`
+    query {
+      allPrismicHeader {
+        nodes {
+          data {
+            menu {
+              id
+            }
+            logo {
+              gatsbyImageData
+            }
+            languages {
+              label
+              value
+              icon {
+                url
+              }
+            }
+            button_label
+          }
+        }
+      }
+      allPrismicNavigation {
+        nodes {
+          data {
+            menu_type
+            items {
+              name
+              to
+            }
+          }
+          prismicId
+        }
+      }
+    }
+  `)
+  const headerData = allPrismicHeader.nodes[0].data
+  const navData = allPrismicNavigation.nodes.filter(
+    item => item.prismicId === headerData.menu.id
+  )[0].data
+
+  const [language, setLanguage] = useState(headerData.languages[0])
   const [hambugerActive, setHambugerActiveState] = useState(false)
 
   const hamburgerHandler = () => {
@@ -25,7 +64,7 @@ const Header = () => {
   const SingleValue = ({ children, ...props }) => (
     <components.SingleValue {...props}>
       <img
-        src={props.data.icon}
+        src={props.data.icon.url}
         style={{ width: 28, height: 28 }}
         alt={props.data.label}
       />
@@ -34,7 +73,7 @@ const Header = () => {
   const Option = props => (
     <components.Option {...props}>
       <img
-        src={props.data.icon}
+        src={props.data.icon.url}
         style={{ width: 18, height: 18, marginRight: "14px" }}
         alt={props.data.label}
       />
@@ -48,10 +87,10 @@ const Header = () => {
         <nav className="navbar fixed-top">
           <div className="container">
             <Link to="/">
-              <Logo className="logo" />
+              <GatsbyImage image={getImage(headerData.logo)} alt="logo" />
             </Link>
             <ul className={navMenuClsName}>
-              {header_menus.map((item, idx) => (
+              {navData.items.map((item, idx) => (
                 <li className="nav-item" key={idx}>
                   <Link
                     className="nav-link"
@@ -68,7 +107,7 @@ const Header = () => {
                 isSearchable={false}
                 value={language}
                 onChange={handleLang}
-                options={langs}
+                options={headerData.languages}
                 components={{ SingleValue, Option }}
                 styles={{
                   valueContainer: base => ({
@@ -93,7 +132,7 @@ const Header = () => {
                   menuList: base => ({
                     ...base,
                     width: "200px",
-                    minHeight: "315px",
+                    height: "auto",
                   }),
                   singleValue: base => ({
                     ...base,
@@ -123,7 +162,7 @@ const Header = () => {
               />
             </div>
             <Link className="get-started btn-green" to="/">
-              Get Started
+              {headerData.button_label}
             </Link>
             <div
               className={humbugerClsName}

@@ -1,0 +1,30 @@
+{
+  "Main": {
+    "menu_type": {
+      "type": "Text",
+      "config": {
+        "label": "Menu Type"
+      }
+    },
+    "items": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "Name"
+            }
+          },
+          "to": {
+            "type": "Text",
+            "config": {
+              "label": "To"
+            }
+          }
+        },
+        "label": "Items"
+      }
+    }
+  }
+}

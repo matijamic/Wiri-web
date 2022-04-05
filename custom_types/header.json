@@ -1,0 +1,54 @@
+{
+  "Main": {
+    "logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Logo"
+      }
+    },
+    "languages": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Icon"
+            }
+          },
+          "label": {
+            "type": "Text",
+            "config": {
+              "label": "Label"
+            }
+          },
+          "value": {
+            "type": "Text",
+            "config": {
+              "label": "Value"
+            }
+          }
+        },
+        "label": "Languages"
+      }
+    },
+    "button_label": {
+      "type": "Text",
+      "config": {
+        "label": "Button Label"
+      }
+    },
+    "menu": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["navigation"],
+        "label": "Menu"
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "Main": {
+    "socials": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "icon": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Icon"
+            }
+          },
+          "to": {
+            "type": "Text",
+            "config": {
+              "label": "To"
+            }
+          }
+        },
+        "label": "Socials"
+      }
+    },
+    "contact_label": {
+      "type": "Text",
+      "config": {
+        "label": "Contact Label"
+      }
+    },
+    "address": {
+      "type": "Text",
+      "config": {
+        "label": "Address"
+      }
+    },
+    "telephone": {
+      "type": "Text",
+      "config": {
+        "label": "Telephone"
+      }
+    },
+    "mail": {
+      "type": "Text",
+      "config": {
+        "label": "Mail"
+      }
+    },
+    "copyright": {
+      "type": "Text",
+      "config": {
+        "label": "Copyright"
+      }
+    },
+    "cookie_policy": {
+      "type": "Text",
+      "config": {
+        "label": "Cookie Policy"
+      }
+    },
+    "privacy_policy": {
+      "type": "Text",
+      "config": {
+        "label": "Privacy Policy"
+      }
+    },
+    "menu": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["navigation"],
+        "label": "Menu"
+      }
+    },
+    "menu2": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["navigation"],
+        "label": "Menu2"
+      }
+    }
+  }
+}
