@@ -43,12 +43,12 @@ const Inner = styled.div`
     }
   }
   ${down("md")} {
-    margin: 50px 0 400px;
+    margin: 50px 0 470px;
     padding: 30px 35px 400px;
     border-radius: 20px;
   }
   ${down("sm")} {
-    margin-bottom: 300px;
+    margin-bottom: 200px;
   }
 `
 const Plan = styled.div`
@@ -148,9 +148,13 @@ const Tag = styled.div`
 const PricingSlider = styled.div`
   position: absolute;
   top: 60%;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   ${down("md")} {
     top: 50%;
+  }
+  ${down("sm")} {
+    top: 40%;
   }
 `
 const PricingSlide = styled.div`
@@ -162,27 +166,27 @@ const PricingSlide = styled.div`
   background-color: ${props => (props.active ? "#08b689" : "white")};
   z-index: 0;
   ${up("sm")} {
-    /* width: 433px;
-    padding: 53px 39px; */
+    /* width: 433px; */
+    padding: 53px 39px;
     border-radius: 20px;
     box-shadow: 0 24px 88px rgba(83, 96, 129, 0.17);
   }
   ${up("md")} {
-    /* width: 224px;
-    padding: 24px 20px; */
+    /* width: 224px; */
+    padding: 24px 20px;
     box-shadow: 0 10px 38px rgba(83, 96, 129, 0.17);
   }
   ${up("lg")} {
-    /* width: 269px;
-    padding: 35px 23px; */
+    /* width: 269px; */
+    padding: 35px 23px;
     box-shadow: 0 13px 46px rgba(83, 96, 129, 0.17);
   }
   ${up("xl")} {
     /* width: 290px; */
   }
   ${up("xxl")} {
-    /* width: 360px;
-    padding: 52px 26px; */
+    width: 360px;
+    padding: 52px 26px;
   }
   &::after {
     content: "";
@@ -205,59 +209,94 @@ const PricingSlide = styled.div`
     font-size: 70px;
     font-weight: 500;
     line-height: 41px;
-    ${down("md")} {
-      font-size: 42px;
+    font-size: 42px;
+    ${up("sm")} {
+      font-size: 84px;
+    }
+    ${up("md")} {
+      font-size: 43px;
+    }
+    ${up("lg")} {
+      font-size: 52px;
+    }
+    ${up("xl")} {
+      font-size: 57px;
+    }
+    ${up("xxl")} {
+      font-size: 70px;
     }
   }
   .per-month {
     font-weight: 400;
     font-size: 20px;
     color: ${props => (props.active ? "white" : "#989898")};
-    ${down("md")} {
-      font-size: 14px;
+    ${up("sm")} {
+      font-size: 24px;
+    }
+    ${up("md")} {
+      font-size: 15px;
+    }
+    ${up("lg")} {
+      font-size: 16px;
+    }
+    ${up("xl")} {
+      font-size: 17px;
+    }
+    ${up("xxl")} {
+      font-size: 20px;
     }
   }
   .type {
     color: ${props => (props.active ? "white" : "#4478db")};
-    font-size: 29px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 41px;
     letter-spacing: 0.58px;
-    ${down("md")} {
-      font-size: 18px;
-      line-height: 24.1px;
-      letter-spacing: 0.61px;
+    ${up("sm")} {
+      font-size: 35px;
+    }
+    ${up("md")} {
+      font-size: 20px;
+    }
+    ${up("lg")} {
+      font-size: 23px;
+    }
+    ${up("xl")} {
+      font-size: 24px;
+    }
+    ${up("xxl")} {
+      font-size: 29px;
     }
   }
   .feature {
     color: ${props => (props.active ? "white" : "#303030")};
-    font-size: 21px;
+    font-size: 13px;
     font-weight: 500;
-    line-height: 61px;
-    letter-spacing: 0.42px;
-    ${down("xxl")} {
-      font-size: 18px;
-      line-height: 49px;
-      letter-spacing: 0.44px;
-    }
-    ${down("xl")} {
-      line-height: 46px;
-      letter-spacing: 0.48px;
-    }
-    ${down("lg")} {
-      font-size: 15px;
-      line-height: 38px;
-      letter-spacing: normal;
-    }
-    ${down("md")} {
+    line-height: 35.86px;
+    letter-spacing: 0.44px;
+    ${up("sm")} {
       font-size: 25px;
       line-height: 73px;
       letter-spacing: 0.42px;
     }
-    ${down("sm")} {
-      font-size: 13px;
-      line-height: 35.86px;
+    ${up("md")} {
+      font-size: 15px;
+      line-height: 38px;
+      letter-spacing: normal;
+    }
+    ${up("lg")} {
+      font-size: 18px;
+      line-height: 46px;
+      letter-spacing: 0.48px;
+    }
+    ${up("xl")} {
+      line-height: 49px;
       letter-spacing: 0.44px;
+    }
+    ${up("xxl")} {
+      font-size: 21px;
+      line-height: 61px;
+      letter-spacing: 0.42px;
     }
   }
   hr {
@@ -285,7 +324,7 @@ const PricingSlide = styled.div`
 const Header = styled.div``
 const Body = styled.div``
 const Footer = styled.div`
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
 `
 
@@ -365,7 +404,7 @@ const PricingPlan = () => {
     centerMode: true,
     responsive: [
       {
-        breakpoint: 1025,
+        breakpoint: 800,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -399,7 +438,7 @@ const PricingPlan = () => {
           </Plan>
         </Inner>
       </Wrapper>
-      <PricingSlider>
+      <PricingSlider className="container">
         <Slider ref={c => (slider.current = c)} {...settings}>
           {pricingData.map((item, idx) => (
             <div className="d-flex justify-content-center" key={idx}>
