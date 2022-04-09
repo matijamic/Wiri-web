@@ -1,13 +1,16 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import { HeroBack } from "../../utils/imgImport"
+import styled from "styled-components"
 
-import {
-  DealsImg,
-  MenuImg,
-  QuestionImg,
-  ReviewImg,
-} from "../../utils/imgImport"
+const BackImg = styled.img`
+  position: absolute;
+  width: calc(100% - 40px);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`
 
 const HomeHero = () => {
   const { allPrismicHomeHero } = useStaticQuery(graphql`
@@ -20,13 +23,27 @@ const HomeHero = () => {
             hero_image {
               gatsbyImageData
             }
+            menu_image {
+              gatsbyImageData
+            }
+            promotion_image {
+              gatsbyImageData
+            }
+            qr_image {
+              gatsbyImageData
+            }
+            question_image {
+              gatsbyImageData
+            }
+            rating_image {
+              gatsbyImageData
+            }
           }
         }
       }
     }
   `)
   const homeData = allPrismicHomeHero.nodes[0].data
-  const heroImg = getImage(homeData.hero_image)
 
   return (
     <section className="container">
@@ -43,18 +60,36 @@ const HomeHero = () => {
             <p className="bottom-text">No credit card required</p>
           </div>
           <div className="col-lg-6 right-side">
-            <GatsbyImage image={heroImg} alt="hero img" />
-            <img
-              className="float review-img"
-              src={ReviewImg}
-              alt="review img"
+            <BackImg src={HeroBack} alt="back img" />
+            <GatsbyImage
+              image={getImage(homeData.hero_image)}
+              alt="hero img"
+              className="hero-img"
             />
-            <img className="float menu-img" src={MenuImg} alt="review img" />
-            <img className="float deals-img" src={DealsImg} alt="review img" />
-            <img
+            <GatsbyImage
+              className="float review-img"
+              image={getImage(homeData.rating_image)}
+              alt="rating img"
+            />
+            <GatsbyImage
+              className="float menu-img"
+              image={getImage(homeData.menu_image)}
+              alt="menu img"
+            />
+            <GatsbyImage
+              className="float deals-img"
+              image={getImage(homeData.promotion_image)}
+              alt="promotion img"
+            />
+            <GatsbyImage
               className="float question-img"
-              src={QuestionImg}
-              alt="review img"
+              image={getImage(homeData.question_image)}
+              alt="question img"
+            />
+            <GatsbyImage
+              className="qr-img"
+              image={getImage(homeData.qr_image)}
+              alt="qr img"
             />
           </div>
         </div>

@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import Slider from "react-slick"
 import styled from "styled-components"
-import { down } from "styled-breakpoints"
+import { down, up } from "styled-breakpoints"
 
 import Heading from "../common/heading"
 
@@ -41,7 +41,22 @@ const SlickArrows = styled.div`
 `
 const RuleSlide = styled.div`
   background-color: white;
-  box-shadow: 0 20px 73px rgba(83, 96, 129, 0.17);
+  /* box-shadow: 0 12px 43px rgba(83, 96, 129, 0.17);
+  ${up("sm")} {
+    box-shadow: 0 24px 88px rgba(83, 96, 129, 0.17);
+  }
+  ${up("md")} {
+    box-shadow: 0 10px 38px rgba(83, 96, 129, 0.17);
+  }
+  ${up("lg")} {
+    box-shadow: 0 13px 46px rgba(83, 96, 129, 0.17);
+  }
+  ${up("xl")} {
+    box-shadow: 0 15px 53px rgba(83, 96, 129, 0.17);
+  }
+  ${up("xxl")} {
+    box-shadow: 0 20px 73px rgba(83, 96, 129, 0.17);
+  } */
 `
 const RuleItem = styled.div`
   display: flex;
@@ -78,7 +93,7 @@ const RuleList = styled.ul`
       position: relative;
       padding: 20px 40px;
       background-color: #4478db;
-      box-shadow: 0 10px 24px rgba(68, 120, 219, 0.27);
+      /* box-shadow: 0 10px 24px rgba(68, 120, 219, 0.27); */
       border-radius: 10px;
       &::before {
         content: "";
@@ -95,7 +110,7 @@ const RuleList = styled.ul`
       }
       ${down("sm")} {
         padding: 12px 20px;
-        box-shadow: 0 6px 14px rgba(68, 120, 219, 0.27);
+        /* box-shadow: 0 6px 14px rgba(68, 120, 219, 0.27); */
         border-radius: 5px;
         &::before {
           top: -8px;
@@ -185,7 +200,7 @@ const AllRule = () => {
         align="center"
       />
       <Slider
-        className="app-slider"
+        className="rule-slider"
         ref={c => (slider.current = c)}
         {...settings}
       >

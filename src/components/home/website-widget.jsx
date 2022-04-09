@@ -10,9 +10,9 @@ import { WidgetBack, LeftArrow, RightArrow } from "../../utils/imgImport"
 // import { widgets } from "../../utils/staticData"
 
 const Section = styled.section`
-  margin-top: 400px;
+  /* margin-top: 400px; */
   ${down("sm")} {
-    margin-top: 350px;
+    /* margin-top: 350px; */
   }
 `
 const Title = styled.h2`

@@ -12,6 +12,10 @@
       background-color: white;
       color: $green;
     }
+    &:hover {
+      background-color: $blue;
+      color: white !important;
+    }
   }
   &-blue {
     padding: 16px 15px;

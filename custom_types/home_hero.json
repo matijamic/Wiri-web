@@ -19,6 +19,46 @@
         "thumbnails": [],
         "label": "Hero Image"
       }
+    },
+    "rating_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Rating Image"
+      }
+    },
+    "promotion_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Promotion Image"
+      }
+    },
+    "menu_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Menu Image"
+      }
+    },
+    "question_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Question Image"
+      }
+    },
+    "qr_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "QR Image"
+      }
     }
   }
 }

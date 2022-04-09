@@ -166,23 +166,17 @@ const PricingSlide = styled.div`
   background-color: ${props => (props.active ? "#08b689" : "white")};
   z-index: 0;
   ${up("sm")} {
-    /* width: 433px; */
     padding: 53px 39px;
     border-radius: 20px;
     box-shadow: 0 24px 88px rgba(83, 96, 129, 0.17);
   }
   ${up("md")} {
-    /* width: 224px; */
     padding: 24px 20px;
     box-shadow: 0 10px 38px rgba(83, 96, 129, 0.17);
   }
   ${up("lg")} {
-    /* width: 269px; */
     padding: 35px 23px;
     box-shadow: 0 13px 46px rgba(83, 96, 129, 0.17);
-  }
-  ${up("xl")} {
-    /* width: 290px; */
   }
   ${up("xxl")} {
     width: 360px;
@@ -413,7 +407,7 @@ const PricingPlan = () => {
     ],
   }
   return (
-    <div className="position-relative">
+    <section className="pricing-container position-relative">
       <Wrapper className="container">
         <Inner>
           <Heading
@@ -439,7 +433,11 @@ const PricingPlan = () => {
         </Inner>
       </Wrapper>
       <PricingSlider className="container">
-        <Slider ref={c => (slider.current = c)} {...settings}>
+        <Slider
+          className="pricing-slider"
+          ref={c => (slider.current = c)}
+          {...settings}
+        >
           {pricingData.map((item, idx) => (
             <div className="d-flex justify-content-center" key={idx}>
               <PricingComponent
@@ -458,7 +456,7 @@ const PricingPlan = () => {
           </button>
         </SlickArrows>
       </PricingSlider>
-    </div>
+    </section>
   )
 }
 

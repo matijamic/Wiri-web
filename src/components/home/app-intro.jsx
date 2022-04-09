@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Slider from "react-slick"
 import styled from "styled-components"
-import { down } from "styled-breakpoints"
+import { down, up } from "styled-breakpoints"
 
 import Heading from "../common/heading"
 
@@ -12,51 +12,145 @@ import { AppBack, LeftArrow, RightArrow } from "../../utils/imgImport"
 // import { appImgs } from "../../utils/staticData"
 
 const Section = styled.section`
-  margin-bottom: 450px;
+  margin-bottom: 300px;
+  ${up("sm")} {
+    margin-bottom: 470px;
+  }
+  ${up("md")} {
+    margin-bottom: 250px;
+  }
+  ${up("xxl")} {
+    margin-bottom: 350px;
+  }
+  ${down("md")} {
+    .app-arrows {
+      display: block;
+    }
+  }
 `
 const Inner = styled.div`
   position: relative;
-  padding: 150px 50px 400px;
-  border-radius: 60px;
+  padding: 50px 38px 215px;
   background-color: #f0fbf8;
+  border-radius: 20px;
   z-index: 1;
   &::after {
     content: "";
     position: absolute;
     top: 0;
     right: 0;
-    width: 360px;
-    height: 320px;
+    width: 90px;
+    height: 104px;
     background-image: url(${AppBack});
     background-repeat: no-repeat;
     background-size: contain;
     z-index: -1;
-    ${down("md")} {
-      width: 154px;
+    ${up("sm")} {
+      width: 187px;
+      height: 214px;
+    }
+    ${up("md")} {
+      width: 202px;
       height: 180px;
     }
+    ${up("lg")} {
+      width: 243px;
+      height: 215px;
+    }
+    ${up("xl")} {
+      width: 290px;
+      height: 258px;
+    }
+    ${up("xxl")} {
+      width: 360px;
+      height: 320px;
+    }
   }
-  ${down("sm")} {
-    padding-top: 50px;
-    padding-bottom: 350px;
-    padding-left: 0;
-    padding-right: 0;
+  ${up("sm")} {
+    padding: 102px 77px 364px;
+    border-radius: 36px;
+  }
+  ${up("md")} {
+    padding-top: 83px;
+    padding-bottom: 256px;
+    border-radius: 40px;
+  }
+  ${up("lg")} {
+    padding-top: 103px;
+    padding-bottom: 308px;
+  }
+  ${up("xl")} {
+    padding-top: 122px;
+    padding-bottom: 367px;
+  }
+  ${up("xxl")} {
+    padding-top: 156px;
+    padding-bottom: 452px;
   }
 `
 const AppSlider = styled.div`
   position: absolute;
-  top: 53%;
+  top: 180px;
   width: 100%;
-  ${down("sm")} {
-    top: 37%;
+  ${up("sm")} {
+    top: 389px;
+  }
+  ${up("md")} {
+    top: 204px;
+  }
+  ${up("lg")} {
+    top: 244px;
+  }
+  ${up("xl")} {
+    top: 292px;
+  }
+  ${up("xxl")} {
+    top: 363px;
   }
 `
 const AppSlide = styled.div`
-  padding: 12px;
-  border-radius: 25px;
-  max-width: 300px;
-  background-color: white;
-  box-shadow: 0 20px 73px rgba(83, 96, 129, 0.17);
+  width: 178px;
+  height: 363px;
+  box-shadow: 0 12px 43px rgba(83, 96, 129, 0.17);
+  border-radius: 15px;
+  background-color: #ffffff;
+  margin: 0 20px;
+  padding: 7px;
+  ${up("sm")} {
+    width: 301px;
+    height: 616px;
+    box-shadow: 0 20px 73px rgba(83, 96, 129, 0.17);
+    border-radius: 25px;
+    padding: 12px;
+  }
+  ${up("md")} {
+    width: 168px;
+    height: 345px;
+    box-shadow: 0 10px 38px rgba(83, 96, 129, 0.17);
+    border-radius: 20px;
+    padding: 6px;
+  }
+  ${up("lg")} {
+    width: 203px;
+    height: 416px;
+    box-shadow: 0 13px 46px rgba(83, 96, 129, 0.17);
+    border-radius: 16px;
+    padding: 8px;
+  }
+  ${up("xl")} {
+    width: 242px;
+    height: 496px;
+    box-shadow: 0 15px 53px rgba(83, 96, 129, 0.17);
+    border-radius: 20px;
+    padding: 9px;
+  }
+  ${up("xxl")} {
+    width: 301px;
+    height: 616px;
+    box-shadow: 0 20px 73px rgba(83, 96, 129, 0.17);
+    border-radius: 25px;
+    padding: 12px;
+  }
 `
 
 const AppIntro = () => {
@@ -96,14 +190,7 @@ const AppIntro = () => {
     centerMode: true,
     responsive: [
       {
-        breakpoint: 1500,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 1025,
+        breakpoint: 991,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
@@ -114,6 +201,7 @@ const AppIntro = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          variableWidth: true,
         },
       },
     ],

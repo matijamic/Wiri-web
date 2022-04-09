@@ -61,6 +61,15 @@ const Header = () => {
     navMenuClsName += "active"
   }
 
+  const customStyles = {
+    option: (base, state) => {
+      return {
+        ...base,
+        color: state.data === state.selectProps.value ? "white" : "#303030",
+      }
+    },
+  }
+
   const SingleValue = ({ children, ...props }) => (
     <components.SingleValue {...props}>
       <img
@@ -84,7 +93,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <nav className="navbar fixed-top">
+        <nav className="navbar">
           <div className="container">
             <Link to="/">
               <GatsbyImage image={getImage(headerData.logo)} alt="logo" />
@@ -109,56 +118,7 @@ const Header = () => {
                 onChange={handleLang}
                 options={headerData.languages}
                 components={{ SingleValue, Option }}
-                styles={{
-                  valueContainer: base => ({
-                    ...base,
-                    padding: "0",
-                  }),
-                  control: base => ({
-                    ...base,
-                    outline: "none",
-                    border: "none",
-                    boxShadow: "none",
-                    cursor: "pointer",
-                  }),
-                  menu: base => ({
-                    ...base,
-                    left: "-100px",
-                    width: "auto",
-                    overflow: "auto",
-                    boxShadow: "0 27px 49px rgba(29, 22, 55, 0.36)",
-                    borderRadius: "10px",
-                  }),
-                  menuList: base => ({
-                    ...base,
-                    width: "200px",
-                    height: "auto",
-                  }),
-                  singleValue: base => ({
-                    ...base,
-                    padding: 0,
-                    margin: 0,
-                    borderRadius: "50%",
-                  }),
-                  dropdownIndicator: () => ({
-                    paddingLeft: "4px",
-                  }),
-                  indicatorSeparator: () => ({
-                    display: "none",
-                  }),
-                  option: (base, state) => ({
-                    ...base,
-                    display: "flex",
-                    alignItems: "center",
-                    cursor: "pointer",
-                    padding: "10px 21px",
-                    margin: "0",
-                    width: "100%",
-                    borderBottom: "1px solid rgba(19,19,19,0.1)",
-                    fontSize: "20px",
-                    color: state.isSelected ? "#4478db" : "#303030",
-                  }),
-                }}
+                styles={customStyles}
               />
             </div>
             <Link className="get-started btn-green" to="/">

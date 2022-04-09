@@ -9,11 +9,7 @@ export const Wrapper = styled.div`
 `
 export const SlickArrows = styled.div`
   display: none;
-  margin-top: 35px;
   text-align: center;
-  ${down("lg")} {
-    display: block !important;
-  }
   button {
     border: none;
     background-color: unset;

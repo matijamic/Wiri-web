@@ -1,7 +1,4 @@
 header {
-  position: sticky;
-  top: 0;
-  z-index: 10;
   .container {
     @include mq("desktop") {
       max-width: calc(100% - 250px);

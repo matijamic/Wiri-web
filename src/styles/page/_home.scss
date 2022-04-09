@@ -1,7 +1,11 @@
 .home-hero {
   padding: 80px 40px 40px 80px;
   background: linear-gradient(0deg, #f8faff -25%, #f6f9ff 125%);
-  border-radius: 60px;
+  border-radius: 20px;
+  @include mq("phone") {
+    border-radius: 36px;
+  }
+
   .left-side {
     max-width: 700px;
     .title {
@@ -72,45 +76,168 @@
   }
   .right-side {
     position: relative;
+    text-align: center;
+    .hero-img {
+      position: relative;
+      width: 152px;
+      height: 307px;
+      @include mq("phone") {
+        width: 311px;
+        height: 627px;
+      }
+      @include mq("tablet") {
+        width: 175px;
+        height: 356px;
+      }
+      @include mq("laptop") {
+        width: 213px;
+        height: 431px;
+      }
+      @include mq("desktop") {
+        width: 249px;
+        height: 504px;
+      }
+      @include mq("x-desktop") {
+        width: 341px;
+        height: 691px;
+      }
+    }
     .review-img {
       top: 0;
       left: 60px;
-      width: fs(85px, 240px);
-      height: fs(50px, 139px);
+      width: 85px;
+      height: 50px;
+      @include mq("phone") {
+        width: 173px;
+        height: 100px;
+      }
+      @include mq("tablet") {
+        width: 125px;
+        height: 72px;
+      }
+      @include mq("laptop") {
+        width: 155px;
+        height: 88px;
+      }
+      @include mq("desktop") {
+        width: 176px;
+        height: 102px;
+      }
+      @include mq("x-desktop") {
+        width: 240px;
+        height: 139px;
+      }
     }
     .menu-img {
       top: calc(40% - 50px);
       left: 0;
       transform: translateY(-50%);
-      width: fs(85px, 223px);
-      height: fs(105px, 323px);
+      width: 116px;
+      height: 139px;
       animation-duration: 13s;
+      @include mq("phone") {
+        width: 200px;
+        height: 240px;
+      }
+      @include mq("tablet") {
+        width: 130px;
+        height: 155px;
+      }
+      @include mq("laptop") {
+        width: 150px;
+        height: 190px;
+      }
+      @include mq("desktop") {
+        width: 170px;
+        height: 230px;
+      }
+      @include mq("x-desktop") {
+        width: 250px;
+        height: 330px;
+      }
     }
     .deals-img {
       top: fs(43px, 100px);
       right: 20px;
-      width: fs(80px, 227px);
-      height: fs(54px, 153px);
+      width: 80px;
+      height: 54px;
       animation-duration: 7s;
+      @include mq("phone") {
+        width: 163px;
+        height: 110px;
+      }
+      @include mq("tablet") {
+        width: 118px;
+        height: 110px;
+      }
+      @include mq("laptop") {
+        width: 142px;
+        height: 96px;
+      }
+      @include mq("desktop") {
+        width: 168px;
+        height: 112px;
+      }
+      @include mq("x-desktop") {
+        width: 227px;
+        height: 153px;
+      }
     }
     .question-img {
       top: 35%;
       right: -20px;
-      width: fs(89px, 250px);
-      height: fs(156px, 423px);
+      width: 89px;
+      height: 156px;
       animation-duration: 15s;
+      @include mq("phone") {
+        width: 183px;
+        height: 320px;
+      }
+      @include mq("tablet") {
+        width: 132px;
+        height: 231px;
+      }
+      @include mq("laptop") {
+        width: 159px;
+        height: 280px;
+      }
+      @include mq("desktop") {
+        width: 186px;
+        height: 327px;
+      }
+      @include mq("x-desktop") {
+        width: 255px;
+        height: 488px;
+      }
       @include mq("tablet", max) {
         right: 0;
       }
     }
     .qr-img {
+      position: absolute;
       bottom: 0px;
-      left: 50px;
-      width: fs(55px, 135px);
-      height: fs(55px, 135px);
-      animation-duration: 4s;
-      @include mq("desktop", max) {
-        bottom: 50px;
+      left: 30px;
+      width: 50px;
+      height: 50px;
+      @include mq("phone") {
+        width: 80px;
+        height: 80px;
+      }
+      @include mq("tablet") {
+        width: 60px;
+        height: 60px;
+      }
+      @include mq("laptop") {
+        width: 70px;
+        height: 70px;
+      }
+      @include mq("desktop") {
+        width: 90px;
+        height: 90px;
+      }
+      @include mq("x-desktop") {
+        width: 120px;
+        height: 120px;
       }
     }
   }
@@ -134,10 +261,65 @@
 
 .app-slider {
   z-index: 2;
+  .slick-list {
+    padding-top: 28px !important;
+    padding-bottom: 45px !important;
+    @include mq("phone") {
+      padding-bottom: 75px !important;
+    }
+    @include mq("tablet") {
+      padding-bottom: 40px !important;
+    }
+    @include mq("laptop") {
+      padding-bottom: 50px !important;
+    }
+    @include mq("desktop") {
+      padding-bottom: 55px !important;
+    }
+    @include mq("x-desktop") {
+      padding-bottom: 75px !important;
+    }
+  }
   @include mq("desktop") {
     max-width: calc(100% - 200px);
     margin-left: auto;
     margin-right: auto;
+  }
+}
+.rule-slider {
+  z-index: 2;
+  // .slick-list {
+  //   padding-top: 28px !important;
+  //   padding-bottom: 45px !important;
+  //   @include mq("phone") {
+  //     padding-bottom: 75px !important;
+  //   }
+  //   @include mq("tablet") {
+  //     padding-bottom: 40px !important;
+  //   }
+  //   @include mq("laptop") {
+  //     padding-bottom: 50px !important;
+  //   }
+  //   @include mq("desktop") {
+  //     padding-bottom: 55px !important;
+  //   }
+  //   @include mq("x-desktop") {
+  //     padding-bottom: 75px !important;
+  //   }
+  // }
+}
+.pricing-slider {
+  .slick-list {
+    padding-bottom: 43px !important;
+    @include mq("phone") {
+      padding-bottom: 88px !important;
+    }
+    @include mq("tablet") {
+      padding-bottom: 38px !important;
+    }
+    @include mq("laptop") {
+      padding-bottom: 46px !important;
+    }
   }
 }
 
@@ -148,12 +330,6 @@
   }
   @include mq("phone", max) {
     margin: 50px 0;
-  }
-}
-
-.app-arrows {
-  @include mq("desktop", max) {
-    display: block;
   }
 }
 
