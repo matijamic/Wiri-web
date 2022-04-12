@@ -61,15 +61,6 @@ const Header = () => {
     navMenuClsName += "active"
   }
 
-  const customStyles = {
-    option: (base, state) => {
-      return {
-        ...base,
-        color: state.data === state.selectProps.value ? "white" : "#303030",
-      }
-    },
-  }
-
   const SingleValue = ({ children, ...props }) => (
     <components.SingleValue {...props}>
       <img
@@ -86,7 +77,7 @@ const Header = () => {
         style={{ width: 18, height: 18, marginRight: "14px" }}
         alt={props.data.label}
       />
-      <span>{props.data.label}</span>
+      {props.data.label}
     </components.Option>
   )
 
@@ -118,7 +109,65 @@ const Header = () => {
                 onChange={handleLang}
                 options={headerData.languages}
                 components={{ SingleValue, Option }}
-                styles={customStyles}
+                styles={{
+                  valueContainer: base => ({
+                    ...base,
+                    padding: "0",
+                  }),
+                  control: base => ({
+                    ...base,
+                    outline: "none",
+                    border: "none",
+                    boxShadow: "none",
+                    cursor: "pointer",
+                    "&:hover": {
+                      borderColor: "red",
+                    },
+                  }),
+                  menu: base => ({
+                    ...base,
+                    left: "-100px",
+                    width: "auto",
+                    overflow: "auto",
+                    boxShadow: "0 27px 49px rgba(29, 22, 55, 0.36)",
+                    borderRadius: "10px",
+                  }),
+                  menuList: base => ({
+                    ...base,
+                    width: "200px",
+                    height: "auto",
+                  }),
+                  singleValue: base => ({
+                    ...base,
+                    padding: 0,
+                    margin: 0,
+                    borderRadius: "50%",
+                  }),
+                  dropdownIndicator: () => ({
+                    paddingLeft: "4px",
+                  }),
+                  indicatorSeparator: () => ({
+                    display: "none",
+                  }),
+                  option: (base, state) => {
+                    return {
+                      ...base,
+                      display: "flex",
+                      alignItems: "center",
+                      cursor: "pointer",
+                      padding: "10px 21px",
+                      margin: "0",
+                      width: "100%",
+                      borderBottom: "1px solid rgba(19,19,19,0.1)",
+                      fontSize: "20px",
+                      fontWeight: state.isSelected ? "600" : "400",
+                      color: state.isSelected ? "#4478db" : "#636363",
+                      backgroundColor: "white",
+                      borderRight: state.isSelected && "3px solid #4478db",
+                      borderRadius: "unset",
+                    }
+                  },
+                }}
               />
             </div>
             <Link className="get-started btn-green" to="/">
