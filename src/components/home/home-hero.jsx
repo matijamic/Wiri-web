@@ -51,8 +51,7 @@ const HomeHero = () => {
         <div className="row align-items-center">
           <div className="col-lg-6 left-side">
             <h1 className="title">
-              {homeData.title}
-              {/* <span className="blue-line">business app</span> */}
+              <span className="blue-line">{homeData.title}</span>
               <span className="txt-green">.</span>
             </h1>
             <p className="subtitle mb-5">{homeData.subtitle}</p>

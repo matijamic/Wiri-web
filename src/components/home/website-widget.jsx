@@ -17,6 +17,11 @@ const Section = styled.section`
 `
 const Title = styled.h2`
   text-align: center;
+  .blue-line {
+    &::before {
+      width: 63%;
+    }
+  }
 `
 const WidgetItem = styled.li`
   display: flex;
@@ -212,7 +217,7 @@ const WebsiteWidget = () => {
     <Section>
       <div className="container">
         <Title>
-          {widgetData.title}
+          <span className="blue-line">{widgetData.title}</span>
           <span className="txt-green">.</span>
         </Title>
         <div className="row align-items-center mt-3 d-none d-lg-flex">
