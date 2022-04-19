@@ -59,7 +59,7 @@ const HomeHero = () => {
             <p className="bottom-text">No credit card required</p>
           </div>
           <div className="col-lg-6 right-side">
-            <BackImg src={HeroBack} alt="back img" />
+            {/* <BackImg src={HeroBack} alt="back img" /> */}
             <GatsbyImage
               image={getImage(homeData.hero_image)}
               alt="hero img"

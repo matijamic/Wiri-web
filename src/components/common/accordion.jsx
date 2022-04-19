@@ -51,7 +51,7 @@ const Icon = styled.div`
     content: "+";
     position: absolute;
     top: 52%;
-    left: 52%;
+    left: 51%;
     transform: translate(-50%, -50%);
     font-size: 30px;
     font-weight: 700;
